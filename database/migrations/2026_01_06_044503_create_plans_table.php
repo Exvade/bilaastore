@@ -9,13 +9,12 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-   public function up(): void {
-    Schema::create('premium_apps', function (Blueprint $table) {
+    public function up(): void {
+    Schema::create('plans', function (Blueprint $table) {
         $table->id();
-        $table->string('nama');
-        $table->string('logo')->nullable();
-        $table->text('deskripsi');
-        $table->string('whatsapp'); // Nomor tujuan order
+        $table->foreignId('premium_app_id')->constrained('premium_apps')->onDelete('cascade');
+        $table->string('durasi'); // Contoh: 1 Bulan
+        $table->integer('harga'); // Contoh: 50000
         $table->timestamps();
     });
 }
@@ -25,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('premium_apps');
+        Schema::dropIfExists('plans');
     }
 };
