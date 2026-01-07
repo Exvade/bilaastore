@@ -5,6 +5,7 @@ use App\Http\Controllers\AdminAppController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\TestimonyController;
 
 
 Route::get('/', [HomeController::class, 'index']);
@@ -35,7 +36,7 @@ Route::middleware('auth')->prefix('admin')->group(function () {
     Route::get('/settings', [SettingController::class, 'index']);
     Route::post('/settings/update', [SettingController::class, 'update']);
 
-    
+    Route::resource('testimonies', TestimonyController::class);
 
    
 });

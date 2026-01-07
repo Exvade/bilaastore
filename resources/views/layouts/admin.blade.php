@@ -48,6 +48,11 @@
                         <span>Kelola WhatsApp</span>
                     </a>
 
+                    <a href="{{ route('testimonies.index') }}"
+                        class="flex items-center p-3 rounded-2xl font-semibold transition {{ Request::is('admin/testimonies*') ? 'bg-pink-500 text-white shadow-lg shadow-pink-200' : 'text-slate-600 hover:bg-pink-50 hover:text-pink-500' }}">
+                        <span>Kelola Testimoni</span>
+                    </a>
+
                     <div class="pt-10">
                         <form action="{{ route('logout') }}" method="POST">
                             @csrf

@@ -7,12 +7,21 @@
     <title>Bilaa's Store - Premium Account</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
     <style>
         body {
             font-family: 'Poppins', sans-serif;
             scroll-behavior: smooth;
         }
+
+        .swiper-pagination-bullet-active {
+            background: #ec4899 !important;
+            /* pink-500 */
+        }
     </style>
+
 </head>
 
 <body class="bg-pink-50 text-slate-800">
@@ -75,6 +84,54 @@
                     4</div>
                 <h4 class="font-bold mb-2">Selesai!</h4>
                 <p class="text-sm text-slate-500">Akun dikirim dan kamu bisa langsung mulai menonton.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-gradient-to-b from-white to-pink-50 overflow-hidden">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-black text-slate-800 mb-4">Kesayangan <span
+                        class="text-pink-500">Bilaa</span> Berkomentar ✨</h2>
+                <p class="text-slate-500">Cek pengalaman manis mereka belanja di Bilaa's Store</p>
+            </div>
+
+            <div class="swiper testimonySwiper pb-12">
+                <div class="swiper-wrapper">
+                    @foreach ($testimonies as $t)
+                        <div class="swiper-slide h-auto">
+                            <div
+                                class="bg-white p-8 rounded-[2.5rem] border border-pink-100 shadow-xl shadow-pink-100/50 h-full flex flex-col justify-between relative overflow-hidden group">
+                                <div
+                                    class="absolute top-4 right-6 text-pink-100 text-6xl font-serif opacity-50 group-hover:text-pink-200 transition-colors">
+                                    “</div>
+
+                                <div class="relative z-10">
+                                    <div class="flex text-yellow-400 mb-4 gap-1">
+                                        <span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span>
+                                    </div>
+                                    <p class="text-slate-600 italic leading-relaxed mb-6">
+                                        "{{ $t->teks }}"
+                                    </p>
+                                </div>
+
+                                <div class="flex items-center gap-4">
+                                    <div
+                                        class="w-12 h-12 bg-gradient-to-tr from-pink-500 to-rose-400 rounded-full flex items-center justify-center text-white font-bold shadow-lg shadow-pink-200">
+                                        {{ substr($t->nama, 0, 1) }}
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-slate-800">{{ $t->nama }}</h4>
+                                        <p class="text-xs text-pink-400 font-medium tracking-widest uppercase">Verified
+                                            Buyer</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+
+                <div class="swiper-pagination"></div>
             </div>
         </div>
     </section>
@@ -171,17 +228,45 @@
             </div>
             <div class="bg-white p-6 rounded-3xl border border-pink-100">
                 <h4 class="font-bold text-pink-600 mb-2">Berapa lama proses pengirimannya?</h4>
-                <p class="text-sm text-slate-500">Proses kilat! Setelah pembayaran dikonfirmasi, akun akan dikirim dalam
-                    waktu 5-15 menit (tergantung antrean).</p>
+                <p class="text-sm text-slate-500">Proses kilat! Setelah pembayaran dikonfirmasi, akun akan dikirim
+                    dalam
+                    waktu 5-30 menit (tergantung antrean).</p>
             </div>
         </div>
     </section>
 
     <footer class="py-12 bg-white text-center border-t border-pink-100">
         <p class="text-pink-500 font-bold text-xl italic mb-2">Bilaa's Store</p>
-        <p class="text-slate-400 text-sm px-4">Terpercaya sejak 2026. Nonton puas, dompet ceria. ✨</p>
+        <p class="text-slate-400 text-sm px-4">Terpercaya sejak 2025. Nonton puas, dompet ceria. ✨</p>
     </footer>
 
+    <script>
+        var swiper = new Swiper(".testimonySwiper", {
+            slidesPerView: 1,
+            spaceBetween: 20,
+            loop: true, // Membuat looping terus menerus
+            autoplay: {
+                delay: 3000, // Berjalan setiap 3 detik
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            breakpoints: {
+                // Ketika layar >= 640px (Tablet)
+                640: {
+                    slidesPerView: 2,
+                    spaceBetween: 30,
+                },
+                // Ketika layar >= 1024px (Laptop)
+                1024: {
+                    slidesPerView: 3,
+                    spaceBetween: 40,
+                },
+            },
+        });
+    </script>
 </body>
 
 </html>
