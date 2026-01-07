@@ -86,33 +86,67 @@
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             @foreach ($apps as $app)
-                <div
-                    class="bg-white rounded-[2rem] shadow-xl shadow-pink-100 overflow-hidden border border-pink-100 hover:translate-y-[-10px] transition-all duration-300">
-                    <div class="h-44 bg-pink-100 flex items-center justify-center p-8">
-                        @if ($app->logo)
-                            <img src="{{ asset('storage/' . $app->logo) }}"
-                                class="h-full object-contain drop-shadow-2xl">
-                        @endif
+                <div class="relative h-full group z-0 hover:z-10 transition-all duration-500 hover:-translate-y-2">
+
+                    <div
+                        class="absolute -inset-1 bg-gradient-to-br from-pink-200 via-rose-200 to-pink-300 rounded-[3rem] blur-md opacity-0 group-hover:opacity-70 transition duration-500 z-[-1]">
                     </div>
-                    <div class="p-8">
-                        <h3 class="text-2xl font-bold mb-1">{{ $app->nama }}</h3>
 
-                        @php
-                            $hargaTermurah = $app->plans->min('harga');
-                        @endphp
+                    <div
+                        class="relative bg-white h-full rounded-[2.5rem] p-8 flex flex-col justify-between border border-pink-100 shadow-xl shadow-pink-50/50 overflow-hidden z-10">
 
-                        <p class="text-pink-500 font-bold text-lg mb-4">
-                            Mulai dari Rp {{ number_format($hargaTermurah, 0, ',', '.') }}
-                        </p>
+                        <div>
+                            <div class="flex justify-between items-start mb-8">
+                                <div
+                                    class="w-24 h-24 bg-gradient-to-tr from-pink-50 to-white p-5 rounded-[1.5rem] border border-pink-50 shadow-sm group-hover:scale-105 transition-transform flex items-center justify-center relative overflow-hidden">
+                                    <div
+                                        class="absolute top-0 right-0 w-10 h-10 bg-pink-100 rounded-bl-full opacity-50">
+                                    </div>
+                                    @if ($app->logo)
+                                        <img src="{{ asset('storage/' . $app->logo) }}"
+                                            class="w-full h-full object-contain drop-shadow-md relative z-10">
+                                    @else
+                                        <span class="text-4xl">✨</span>
+                                    @endif
+                                </div>
 
-                        <p class="text-slate-500 text-sm mb-6 line-clamp-2 leading-relaxed">
-                            {{ $app->deskripsi }}
-                        </p>
+                                <div class="flex flex-col gap-2 items-end">
 
-                        <a href="{{ route('app.detail', $app->id) }}"
-                            class="block text-center bg-pink-500 text-white py-3 rounded-2xl font-bold shadow-md shadow-pink-200 hover:bg-pink-600 transition">
-                            Lihat Detail & Harga
-                        </a>
+                                    <span
+                                        class="px-3 py-1.5 bg-pink-50 text-pink-500 text-[10px] font-bold uppercase tracking-wider rounded-full border border-pink-100">Garansi
+                                        🛡️</span>
+                                </div>
+                            </div>
+
+                            <h3 class="text-3xl font-black text-slate-800 mb-2 leading-tight">{{ $app->nama }}</h3>
+                            <div class="h-1 w-12 bg-pink-300 rounded-full mb-6"></div>
+                        </div>
+
+                        <div>
+                            @php $hargaTermurah = $app->plans->min('harga'); @endphp
+                            <div class="mb-6 p-4 bg-pink-50/50 rounded-2xl border border-pink-50/50">
+                                <span class="block text-sm text-slate-500 font-medium mb-1">Mulai dari:</span>
+                                <p
+                                    class="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-rose-500">
+                                    Rp {{ number_format($hargaTermurah, 0, ',', '.') }}
+                                    <span class="text-lg text-slate-400 font-semibold">/paket</span>
+                                </p>
+                            </div>
+
+                            <a href="{{ route('app.detail', $app->id) }}"
+                                class="flex items-center justify-center gap-2 w-full bg-slate-800 text-white py-4 rounded-2xl font-bold text-lg shadow-lg hover:bg-pink-500 hover:shadow-pink-200 transition-all duration-300 group/btn relative overflow-hidden">
+                                <span class="relative z-10">Pilih Paket</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="2.5" stroke="currentColor"
+                                    class="w-5 h-5 relative z-10 group-hover/btn:translate-x-1 transition-transform">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                                </svg>
+                                <div
+                                    class="absolute inset-0 h-full w-full scale-0 rounded-2xl transition-all duration-300 group-hover/btn:scale-100 group-hover/btn:bg-white/10">
+                                </div>
+                            </a>
+                        </div>
                     </div>
                 </div>
             @endforeach

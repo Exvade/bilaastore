@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminAppController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Admin\DashboardController;
 
 
 Route::get('/', [HomeController::class, 'index']);
@@ -18,14 +19,23 @@ Route::get('/admin/dashboard', function () {
     return view('admin.dashboard');
 })->middleware('auth');
  Route::delete('/admin/apps/delete/{id}', [AdminAppController::class, 'destroy']);
+ Route::get('/admin/dashboard', [DashboardController::class, 'index'])->middleware('auth');
 
 Route::middleware('auth')->prefix('admin')->group(function () {
     Route::get('/apps', [AdminAppController::class, 'index']);
     Route::get('/apps/create', [AdminAppController::class, 'create']);
     Route::post('/apps/store', [AdminAppController::class, 'store'])->name('apps.store');
+    // Route Baru: Edit & Update
+    Route::get('/apps/edit/{id}', [AdminAppController::class, 'edit'])->name('apps.edit');
+    Route::put('/apps/update/{id}', [AdminAppController::class, 'update'])->name('apps.update');
+    
+    // Route Baru: Delete
+    Route::delete('/apps/delete/{id}', [AdminAppController::class, 'destroy'])->name('apps.delete');
 
     Route::get('/settings', [SettingController::class, 'index']);
     Route::post('/settings/update', [SettingController::class, 'update']);
+
+    
 
    
 });

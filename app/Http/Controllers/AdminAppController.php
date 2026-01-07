@@ -59,15 +59,50 @@ class AdminAppController extends Controller
 
     return redirect('/admin/apps')->with('success', 'Aplikasi berhasil ditambah!');
 }
-    public function destroy($id) {
+   public function edit($id) {
+    $app = PremiumApp::with('plans')->findOrFail($id);
+    return view('admin.apps.edit', compact('app'));
+}
+
+public function update(Request $request, $id) {
     $app = PremiumApp::findOrFail($id);
-    
-    // Hapus logo dari folder storage jika ada
-    if($app->logo) {
-        Storage::disk('public')->delete($app->logo);
+
+    $request->validate([
+        'nama' => 'required',
+        'logo' => 'image|mimes:jpeg,png,jpg|max:2048',
+        'deskripsi' => 'required',
+    ]);
+
+    // Update Logo jika ada file baru
+    if ($request->hasFile('logo')) {
+        if ($app->logo) { Storage::disk('public')->delete($app->logo); }
+        $app->logo = $request->file('logo')->store('logos', 'public');
     }
-    
-    $app->delete(); // Ini otomatis menghapus plans karena kita pakai 'cascade' di database
-    return back()->with('success', 'Aplikasi berhasil dihapus!');
+
+    $app->update([
+        'nama' => $request->nama,
+        'deskripsi' => $request->deskripsi,
+    ]);
+
+    // Update Plans: Hapus yang lama, masukkan yang baru (cara paling simpel)
+    $app->plans()->delete();
+    foreach ($request->durasi as $key => $val) {
+        if (!empty($val)) {
+            \App\Models\Plan::create([
+                'premium_app_id' => $app->id,
+                'durasi' => $val,
+                'harga' => $request->harga[$key],
+            ]);
+        }
+    }
+
+    return redirect()->route('apps.index')->with('success', 'Aplikasi berhasil diperbarui! ✨');
+}
+
+public function destroy($id) {
+    $app = PremiumApp::findOrFail($id);
+    if($app->logo) { Storage::disk('public')->delete($app->logo); }
+    $app->delete();
+    return back()->with('success', 'Aplikasi telah dihapus! 🗑️');
 }
 }
