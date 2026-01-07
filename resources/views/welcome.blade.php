@@ -48,7 +48,7 @@
         <h2 class="text-4xl md:text-6xl font-extrabold text-slate-800 mb-6 leading-tight">Nonton Premium <br><span
                 class="text-pink-500 font-serif italic">Gak Harus Mahal!</span></h2>
         <p class="text-slate-500 max-w-2xl mx-auto mb-10 text-lg">Nikmati akses premium Netflix, Spotify, Disney+, dan
-            lainnya dengan harga kantong pelajar. Aman, legal, dan bergaransi penuh!</p>
+            lainnya dengan harga kantong pelajar. Aman dan bergaransi penuh!</p>
     </header>
 
     <section id="cara-order" class="container mx-auto px-4 py-16">
@@ -141,9 +141,24 @@
             <h3 class="text-3xl font-bold mb-2">Katalog Akun</h3>
             <p class="text-slate-500 text-lg">Pilih aplikasi favoritmu di bawah ini ✨</p>
         </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <section class="container mx-auto px-4 mb-12">
+            <div class="max-w-2xl mx-auto relative">
+                <input type="text" id="searchInput" placeholder="Cari aplikasi kesukaanmu..."
+                    class="w-full pl-14 pr-6 py-5 bg-white border-2 border-pink-100 rounded-[2rem] shadow-xl shadow-pink-100/50 outline-none focus:border-pink-400 transition-all text-lg">
+
+                <div class="absolute left-5 top-1/2 -translate-y-1/2 text-pink-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5"
+                        stroke="currentColor" class="w-7 h-7">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                    </svg>
+                </div>
+            </div>
+        </section>
+        <div id="appGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             @foreach ($apps as $app)
-                <div class="relative h-full group z-0 hover:z-10 transition-all duration-500 hover:-translate-y-2">
+                <div class="app-card relative h-full group z-0 hover:z-10 transition-all duration-500 hover:-translate-y-2"
+                    data-name="{{ strtolower($app->nama) }}">
 
                     <div
                         class="absolute -inset-1 bg-gradient-to-br from-pink-200 via-rose-200 to-pink-300 rounded-[3rem] blur-md opacity-0 group-hover:opacity-70 transition duration-500 z-[-1]">
@@ -151,7 +166,6 @@
 
                     <div
                         class="relative bg-white h-full rounded-[2.5rem] p-8 flex flex-col justify-between border border-pink-100 shadow-xl shadow-pink-50/50 overflow-hidden z-10">
-
                         <div>
                             <div class="flex justify-between items-start mb-8">
                                 <div
@@ -166,15 +180,13 @@
                                         <span class="text-4xl">✨</span>
                                     @endif
                                 </div>
-
                                 <div class="flex flex-col gap-2 items-end">
-
                                     <span
-                                        class="px-3 py-1.5 bg-pink-50 text-pink-500 text-[10px] font-bold uppercase tracking-wider rounded-full border border-pink-100">Garansi
-                                        🛡️</span>
+                                        class="px-3 py-1.5 bg-pink-50 text-pink-500 text-[10px] font-bold uppercase tracking-wider rounded-full border border-pink-100">
+                                        Garansi 🛡️
+                                    </span>
                                 </div>
                             </div>
-
                             <h3 class="text-3xl font-black text-slate-800 mb-2 leading-tight">{{ $app->nama }}</h3>
                             <div class="h-1 w-12 bg-pink-300 rounded-full mb-6"></div>
                         </div>
@@ -207,6 +219,13 @@
                     </div>
                 </div>
             @endforeach
+
+            <div id="noResults"
+                class="hidden col-span-full text-center py-20 bg-white rounded-[3rem] border-2 border-dashed border-pink-100">
+                <span class="text-6xl mb-4 block">😭</span>
+                <h3 class="text-2xl font-bold text-slate-800">Ups! Enggak ketemu...</h3>
+                <p class="text-slate-500 mt-2">Coba cari nama aplikasi lain ya sis.</p>
+            </div>
         </div>
     </section>
 
@@ -216,11 +235,7 @@
             <p class="text-slate-500">Masih ragu? Cek di sini ya!</p>
         </div>
         <div class="space-y-4">
-            <div class="bg-white p-6 rounded-3xl border border-pink-100">
-                <h4 class="font-bold text-pink-600 mb-2">Apakah akunnya legal dan aman?</h4>
-                <p class="text-sm text-slate-500">Iya dong! Semua akun di Bilaa's Store didaftarkan secara legal, jadi
-                    aman dari blokir selama pemakaian wajar.</p>
-            </div>
+
             <div class="bg-white p-6 rounded-3xl border border-pink-100">
                 <h4 class="font-bold text-pink-600 mb-2">Ada garansinya nggak sis?</h4>
                 <p class="text-sm text-slate-500">Pastinya! Ada garansi penuh sesuai masa durasi yang kamu beli. Kalau
@@ -241,6 +256,32 @@
     </footer>
 
     <script>
+        const searchInput = document.getElementById('searchInput');
+        const appCards = document.querySelectorAll('.app-card');
+        const noResults = document.getElementById('noResults');
+
+        searchInput.addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase();
+            let hasResults = false;
+
+            appCards.forEach(card => {
+                const appName = card.getAttribute('data-name');
+
+                if (appName.includes(searchTerm)) {
+                    card.style.display = 'block';
+                    hasResults = true;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            // Tampilkan pesan jika tidak ada aplikasi yang cocok
+            if (hasResults) {
+                noResults.classList.add('hidden');
+            } else {
+                noResults.classList.remove('hidden');
+            }
+        });
         var swiper = new Swiper(".testimonySwiper", {
             slidesPerView: 1,
             spaceBetween: 20,

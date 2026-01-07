@@ -9,20 +9,23 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    public function index()
-    {
-        // 1. Ambil semua aplikasi beserta paket harganya
-        $apps = PremiumApp::with('plans')->get();
+   public function index(Request $request)
+{
+    // Ambil kata kunci dari input search
+    $search = $request->input('search');
 
-        // 2. Ambil setting WhatsApp Global
-        $whatsapp = Setting::where('key', 'whatsapp_number')->first();
+    // Query aplikasi
+    $apps = PremiumApp::with('plans')
+        ->when($search, function($query) use ($search) {
+            return $query->where('nama', 'like', '%' . $search . '%');
+        })
+        ->get();
 
-        // 3. Ambil 6 testimoni terbaru untuk dipajang
-        $testimonies = Testimony::latest()->take(6)->get();
+    $whatsapp = Setting::where('key', 'whatsapp_number')->first();
+    $testimonies = Testimony::latest()->take(6)->get();
 
-        // 4. Kirim semua data ke view 'welcome'
-        return view('welcome', compact('apps', 'whatsapp', 'testimonies'));
-    }
+    return view('welcome', compact('apps', 'whatsapp', 'testimonies'));
+}
 
     // Fungsi untuk halaman detail (tetap ada)
     public function show($id)
