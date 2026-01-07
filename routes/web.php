@@ -3,7 +3,11 @@ use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminAppController;
 use App\Http\Controllers\Admin\SettingController;
+use App\Http\Controllers\HomeController;
 
+
+Route::get('/', [HomeController::class, 'index']);
+Route::get('/aplikasi/{id}', [App\Http\Controllers\HomeController::class, 'show'])->name('app.detail');
 // Halaman Login
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'authenticate']);
