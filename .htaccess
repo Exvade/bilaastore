@@ -5,7 +5,6 @@ Options +FollowSymLinks
     </IfModule>
 
     RewriteEngine On
-    RewriteRule ^(.*)$ public/$1 [L]
 
     # Handle Authorization Header
     RewriteCond %{HTTP:Authorization} .
