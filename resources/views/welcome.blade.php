@@ -20,25 +20,81 @@
             background: #ec4899 !important;
             /* pink-500 */
         }
+
+        @keyframes fadeDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fadeDown {
+            animation: fadeDown 0.3s ease-out forwards;
+        }
+
+        /* Perbaikan Safari iOS untuk blur */
+        .backdrop-blur-lg {
+            -webkit-backdrop-filter: blur(16px);
+        }
     </style>
 
 </head>
 
 <body class="bg-pink-50 text-slate-800">
 
-    <nav class="bg-white/80 backdrop-blur-md sticky top-0 z-50 py-4 shadow-sm">
-        <div class="container mx-auto px-4 flex justify-between items-center">
-            <h1 class="text-2xl font-bold text-pink-500 italic">Bilaa's<span class="text-rose-300">Store</span></h1>
-            <div class="hidden md:flex gap-6 text-sm font-semibold text-slate-600">
-                <a href="#cara-order" class="hover:text-pink-500">Cara Order</a>
-                <a href="#katalog" class="hover:text-pink-500">Katalog</a>
-                <a href="#faq" class="hover:text-pink-500">FAQ</a>
+    <nav class="bg-white/90 backdrop-blur-lg fixed top-0 left-0 right-0 z-[100] border-b border-pink-50">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center h-20">
+                <h1 class="text-2xl font-bold text-pink-500 italic">Bilaa's<span class="text-rose-300">Store</span></h1>
+
+                <div class="hidden md:flex items-center gap-8">
+                    <div class="flex gap-6 text-sm font-semibold text-slate-600">
+                        <a href="#cara-order" class="hover:text-pink-500 transition">Cara Order</a>
+                        <a href="#katalog" class="hover:text-pink-500 transition">Katalog</a>
+                        <a href="#faq" class="hover:text-pink-500 transition">FAQ</a>
+                    </div>
+                    <a href="#katalog"
+                        class="bg-pink-500 text-white px-6 py-2.5 rounded-full text-sm font-bold hover:shadow-lg hover:shadow-pink-200 transition active:scale-95">
+                        Beli Sekarang
+                    </a>
+                </div>
+
+                <button id="mobile-menu-button"
+                    class="md:hidden p-2 text-slate-600 hover:text-pink-500 transition focus:outline-none">
+                    <svg id="menu-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                        stroke-width="2" stroke="currentColor" class="w-8 h-8">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                    </svg>
+                    <svg id="close-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                        stroke-width="2" stroke="currentColor" class="w-8 h-8 hidden">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
             </div>
-            <a href="#katalog"
-                class="bg-pink-500 text-white px-5 py-2 rounded-full text-sm font-semibold hover:shadow-lg hover:shadow-pink-300 transition">Beli
-                Sekarang</a>
+        </div>
+
+        <div id="mobile-menu"
+            class="hidden md:hidden bg-white/95 backdrop-blur-xl border-b border-pink-50 absolute w-full left-0 shadow-2xl animate-fadeDown">
+            <div class="flex flex-col p-6 gap-4 text-center font-semibold text-slate-700">
+                <a href="#cara-order" class="mobile-link py-3 border-b border-pink-50 hover:text-pink-500">Cara
+                    Order</a>
+                <a href="#katalog" class="mobile-link py-3 border-b border-pink-50 hover:text-pink-500">Katalog</a>
+                <a href="#faq" class="mobile-link py-3 border-b border-pink-50 hover:text-pink-500">FAQ</a>
+                <a href="#katalog"
+                    class="mobile-link mt-2 bg-pink-500 text-white py-4 rounded-2xl font-bold shadow-lg shadow-pink-200">
+                    Beli Sekarang ✨
+                </a>
+            </div>
         </div>
     </nav>
+
+    <div class="h-20"></div>
 
     <header class="py-20 px-4 text-center bg-gradient-to-b from-white to-pink-50">
         <div
@@ -259,7 +315,25 @@
         const searchInput = document.getElementById('searchInput');
         const appCards = document.querySelectorAll('.app-card');
         const noResults = document.getElementById('noResults');
+        const btn = document.getElementById('mobile-menu-button');
+        const menu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+        const closeIcon = document.getElementById('close-icon');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
 
+        // Fungsi Toggle Menu
+        function toggleMenu() {
+            menu.classList.toggle('hidden');
+            menuIcon.classList.toggle('hidden');
+            closeIcon.classList.toggle('hidden');
+        }
+
+        btn.addEventListener('click', toggleMenu);
+
+        // Tutup menu saat link diklik
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', toggleMenu);
+        });
         searchInput.addEventListener('input', function() {
             const searchTerm = this.value.toLowerCase();
             let hasResults = false;
