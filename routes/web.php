@@ -23,8 +23,11 @@ Route::get('/admin/dashboard', function () {
  Route::get('/admin/dashboard', [DashboardController::class, 'index'])->middleware('auth');
 
 Route::middleware('auth')->prefix('admin')->group(function () {
-    Route::get('/apps', [AdminAppController::class, 'index']);
-    Route::get('/apps/create', [AdminAppController::class, 'create']);
+    // Tambahkan ->name('apps.index') di baris ini
+    Route::get('/apps', [AdminAppController::class, 'index'])->name('apps.index');
+    
+    // Tambahkan ->name('apps.create') juga agar tombol "Tambah" tidak error
+    Route::get('/apps/create', [AdminAppController::class, 'create'])->name('apps.create');
     Route::post('/apps/store', [AdminAppController::class, 'store'])->name('apps.store');
     // Route Baru: Edit & Update
     Route::get('/apps/edit/{id}', [AdminAppController::class, 'edit'])->name('apps.edit');
