@@ -9,6 +9,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 
     <style>
         body {
@@ -380,6 +382,80 @@
                     spaceBetween: 40,
                 },
             },
+        });
+
+        // Registrasi ScrollTrigger
+        gsap.registerPlugin(ScrollTrigger);
+
+        // 1. Animasi Navbar (Muncul dari atas)
+        gsap.from("nav", {
+            y: -100,
+            opacity: 0,
+            duration: 1,
+            ease: "power4.out"
+        });
+
+        // 2. Animasi Hero Section (Header)
+        const heroTl = gsap.timeline();
+        heroTl.from("header h2", {
+                y: 50,
+                opacity: 0,
+                duration: 0.8,
+                ease: "power3.out"
+            })
+            .from("header p", {
+                y: 30,
+                opacity: 0,
+                duration: 0.8
+            }, "-=0.4")
+            .from("header div.inline-block", {
+                scale: 0.5,
+                opacity: 0,
+                duration: 0.5,
+                ease: "back.out(1.7)"
+            }, "-=0.6");
+
+        // 3. Animasi Grid Cara Order (Muncul satu-satu saat scroll)
+        gsap.from("#cara-order div.bg-white", {
+            scrollTrigger: {
+                trigger: "#cara-order",
+                start: "top 80%", // Mulai animasi saat section terlihat 80% di layar
+            },
+            y: 50,
+            opacity: 0,
+            duration: 0.6,
+            stagger: 0.2, // Memberi jeda antar elemen (muncul bergantian)
+            ease: "power2.out"
+        });
+
+        // 4. Animasi Katalog Produk (Muncul saat scroll)
+        gsap.from(".app-card", {
+            scrollTrigger: {
+                trigger: "#katalog",
+                start: "top 70%",
+            },
+            scale: 0.8,
+            opacity: 0,
+            duration: 0.7,
+            stagger: 0.1,
+            ease: "back.out(1.2)"
+        });
+
+        // 5. Efek Hover Magnetik (Opsional - Sangat Keren untuk Tombol)
+        const buttons = document.querySelectorAll('.bg-pink-500');
+        buttons.forEach(btn => {
+            btn.addEventListener('mouseenter', () => {
+                gsap.to(btn, {
+                    scale: 1.05,
+                    duration: 0.3
+                });
+            });
+            btn.addEventListener('mouseleave', () => {
+                gsap.to(btn, {
+                    scale: 1,
+                    duration: 0.3
+                });
+            });
         });
     </script>
 </body>
