@@ -115,8 +115,8 @@
                 <div class="hero-text">
                     <div class="flex items-center gap-2 mb-6">
                         <span class="w-2 h-2 rounded-full bg-pink-500 animate-pulse"></span>
-                        <span class="text-xs font-bold tracking-widest uppercase text-slate-400">Trusted Store
-                            2026</span>
+                        <span class="text-xs font-bold tracking-widest uppercase text-slate-400">Trusted Store since
+                            2024</span>
                     </div>
                     <h2 class="text-5xl md:text-6xl font-black text-slate-900 leading-[1.1] mb-6">
                         Akses Premium. <br>
@@ -134,28 +134,42 @@
                     </div>
                 </div>
 
-                <div class="relative h-[400px] hidden lg:flex items-center justify-center hero-visual">
+                <div class="relative h-[450px] hidden lg:flex items-center justify-center hero-visual">
+                    <div class="absolute w-64 h-64 bg-pink-100 rounded-full blur-[80px] opacity-50"></div>
+
                     <div
-                        class="float-card absolute top-10 right-0 w-64 bg-white p-6 rounded-[2.5rem] shadow-2xl border border-pink-50 z-20">
+                        class="card-float-1 absolute top-5 right-0 w-64 bg-white p-6 rounded-[2.5rem] shadow-2xl border border-pink-50 z-20">
                         <div class="flex items-center gap-4 mb-4">
-                            <div
-                                class="w-10 h-10 bg-red-600 rounded-xl flex items-center justify-center text-white font-bold">
-                                N</div>
-                            <div class="h-2 w-20 bg-slate-100 rounded-full"></div>
+                            <div class="w-12 h-12 bg-slate-100 rounded-2xl overflow-hidden flex-shrink-0">
+                                <img src="https://via.placeholder.com/150" alt="App Logo"
+                                    class="w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <p class="text-xs font-bold text-slate-400 uppercase tracking-widest">Premium</p>
+                                <p class="text-sm font-black text-slate-800 italic">Netflix UHD</p>
+                            </div>
                         </div>
-                        <div class="h-4 w-full bg-slate-50 rounded-full mb-2"></div>
-                        <div class="text-2xl font-black text-pink-500">Rp 25k</div>
+                        <div class="space-y-2 mb-4">
+                            <p class="text-[10px] text-zinc-400 leading-tight">Akses film kualitas 4K + HDR tanpa
+                                gangguan iklan.</p>
+                        </div>
+                        <div class="text-2xl font-black text-pink-500 italic">Rp 25.000</div>
                     </div>
 
                     <div
-                        class="float-card absolute bottom-10 left-0 w-56 bg-white p-6 rounded-[2.5rem] shadow-2xl border border-pink-50 z-10">
+                        class="card-float-2 absolute bottom-5 left-0 w-60 bg-white p-6 rounded-[2.5rem] shadow-2xl border border-pink-50 z-10">
                         <div class="flex items-center gap-4 mb-4">
-                            <div
-                                class="w-10 h-10 bg-green-500 rounded-xl flex items-center justify-center text-white font-bold">
-                                S</div>
-                            <div class="h-2 w-20 bg-slate-100 rounded-full"></div>
+                            <div class="w-12 h-12 bg-slate-100 rounded-2xl overflow-hidden flex-shrink-0">
+                                <img src="https://via.placeholder.com/150" alt="App Logo"
+                                    class="w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Streaming</p>
+                                <p class="text-sm font-black text-slate-800 italic">Spotify Fam</p>
+                            </div>
                         </div>
-                        <div class="text-xl font-black text-slate-800">Rp 15k</div>
+                        <div class="text-xl font-black text-slate-800 italic">Rp 15.000</div>
+                        <p class="text-[10px] text-zinc-400 mt-1 italic">Garansi penuh 30 hari.</p>
                     </div>
                 </div>
 
@@ -429,33 +443,29 @@
         }, "-=1");
 
         // Animasi Looping Melayang (Aktif Terus)
+        // Kartu Netflix melayang lebih lebar dan lambat
         gsap.to(".card-float-1", {
-            y: -20,
-            x: 10,
-            duration: 3,
+            y: -25,
+            x: 15,
+            rotation: 2,
+            duration: 4,
             repeat: -1,
             yoyo: true,
             ease: "sine.inOut"
         });
 
+        // Kartu Spotify melayang lebih cepat dengan pola berbeda
         gsap.to(".card-float-2", {
-            y: 15,
-            x: -5,
-            duration: 4,
+            y: 20,
+            x: -10,
+            rotation: -2,
+            duration: 3.5,
             repeat: -1,
             yoyo: true,
             ease: "sine.inOut",
             delay: 0.5
         });
 
-        gsap.to(".card-float-3", {
-            rotation: 5,
-            y: -10,
-            duration: 2.5,
-            repeat: -1,
-            yoyo: true,
-            ease: "power1.inOut"
-        });
 
         // 6. LOGIKA SEARCH (Sync dengan GSAP)
         if (searchInput) {
