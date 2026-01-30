@@ -434,18 +434,27 @@
         });
 
         // Animasi Katalog Produk yang diperbaiki
-        gsap.to(".app-card", {
+        // Gunakan fromTo untuk kontrol penuh
+        gsap.fromTo(".app-card", {
+            opacity: 0,
+            y: 50,
+            scale: 0.9
+        }, {
             scrollTrigger: {
                 trigger: "#appGrid",
                 start: "top 80%",
+                // toggleActions menentukan apa yang terjadi saat scroll naik/turun
+                // play = jalankan, none = jangan lakukan apa-apa saat lewat
+                toggleActions: "play none none none"
             },
             opacity: 1,
             y: 0,
             scale: 1,
             duration: 0.8,
             stagger: 0.1,
-            ease: "back.out(1.4)",
-            clearProps: "all"
+            ease: "back.out(1.2)",
+            // Menghapus inline style GSAP setelah selesai agar CSS normal/Search bekerja
+            clearProps: "opacity,transform"
         });
 
         // 5. Efek Hover Magnetik (Opsional - Sangat Keren untuk Tombol)
