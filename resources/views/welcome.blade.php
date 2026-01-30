@@ -108,81 +108,85 @@
 
     <div class="h-20"></div>
 
-    <header class="relative pt-20 pb-16 px-4 bg-white overflow-hidden">
-        <div class="container mx-auto max-w-6xl">
-            <div class="grid lg:grid-cols-2 gap-12 items-center">
+    <header class="relative pt-16 pb-24 lg:pt-32 lg:pb-40 px-4 bg-white overflow-hidden">
+        <div class="absolute top-0 right-0 w-1/3 h-full bg-pink-50/50 -skew-x-12 translate-x-20 z-0"></div>
+
+        <div class="container mx-auto max-w-6xl relative z-10">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
 
                 <div class="hero-text">
-                    <div class="flex items-center gap-2 mb-6">
+                    <div
+                        class="inline-flex items-center gap-2 px-3 py-1 mb-6 bg-pink-50 border border-pink-100 rounded-lg">
                         <span class="w-2 h-2 rounded-full bg-pink-500 animate-pulse"></span>
-                        <span class="text-xs font-bold tracking-widest uppercase text-slate-400">Trusted Store since
+                        <span class="text-[10px] font-bold tracking-[0.2em] text-pink-500 uppercase">Trusted Store Since
                             2024</span>
                     </div>
-                    <h2 class="text-5xl md:text-6xl font-black text-slate-900 leading-[1.1] mb-6">
+
+                    <h2 class="text-5xl md:text-7xl font-black text-slate-900 leading-[1.05] tracking-tight mb-8">
                         Akses Premium. <br>
                         <span class="text-pink-500">Harga Minimum.</span>
                     </h2>
+
                     <p class="text-slate-500 text-lg md:text-xl leading-relaxed max-w-md mb-10">
                         Nikmati konten favoritmu tanpa batas. Legal, aman, dan didukung garansi penuh selama
                         berlangganan.
                     </p>
-                    <div class="flex gap-4">
+
+                    <div class="flex flex-wrap gap-4">
                         <a href="#katalog"
-                            class="bg-slate-900 text-white px-8 py-4 rounded-2xl font-bold hover:bg-pink-500 transition-all">
+                            class="bg-slate-900 text-white px-10 py-4 rounded-2xl font-bold hover:bg-pink-500 transition-all duration-300 shadow-xl shadow-slate-200">
                             Beli Sekarang
                         </a>
                     </div>
                 </div>
 
-                <div class="relative h-[500px] hidden lg:flex items-center justify-center hero-visual">
-                    <div class="absolute w-80 h-80 bg-pink-100 rounded-full blur-[100px] opacity-50"></div>
+                <div class="relative h-[500px] flex items-center justify-center hero-visual">
+                    <div class="absolute w-72 h-72 bg-pink-200 rounded-full blur-[100px] opacity-40"></div>
 
                     <div
-                        class="card-float-1 absolute top-0 right-0 w-60 bg-white p-5 rounded-[2.5rem] shadow-2xl border border-pink-50 z-30">
-                        <div class="flex items-center gap-4 mb-3">
-                            <div class="w-10 h-10 bg-slate-100 rounded-2xl overflow-hidden flex-shrink-0">
-                                <img src="https://via.placeholder.com/150" alt="Netflix"
-                                    class="w-full h-full object-cover">
+                        class="card-float-1 absolute -top-5 -right-5 md:right-0 w-64 bg-white p-6 rounded-[2.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.05)] border border-pink-50 z-30">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="w-12 h-12 bg-slate-100 rounded-2xl overflow-hidden flex-shrink-0">
+                                <img src="https://img.icons8.com/color/512/netflix.png"
+                                    class="w-full h-full object-contain p-2">
                             </div>
                             <div>
-                                <p class="text-[8px] font-bold text-slate-400 uppercase tracking-widest">Premium</p>
-                                <p class="text-sm font-black text-slate-800 italic leading-none">Netflix UHD</p>
+                                <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Premium</p>
+                                <p class="text-sm font-black text-slate-800 italic">Netflix UHD</p>
                             </div>
                         </div>
-                        <p class="text-[10px] text-zinc-400 leading-tight mb-3">Nonton 4K HDR tanpa iklan.</p>
-                        <div class="text-xl font-black text-pink-500 italic">Rp 25.000</div>
+                        <p class="text-[11px] text-zinc-400 mb-4 italic">Nonton 4K HDR tanpa iklan.</p>
+                        <div class="text-2xl font-black text-pink-500 italic">Rp 25.000</div>
                     </div>
 
                     <div
-                        class="card-float-2 absolute bottom-10 left-0 w-56 bg-white p-5 rounded-[2.5rem] shadow-2xl border border-pink-50 z-20">
-                        <div class="flex items-center gap-4 mb-3">
-                            <div class="w-10 h-10 bg-slate-100 rounded-2xl overflow-hidden flex-shrink-0">
-                                <img src="https://via.placeholder.com/150" alt="Spotify"
-                                    class="w-full h-full object-cover">
+                        class="card-float-2 absolute bottom-5 -left-5 md:left-0 w-60 bg-white p-6 rounded-[2.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.05)] border border-pink-50 z-20">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="w-12 h-12 bg-slate-100 rounded-2xl overflow-hidden flex-shrink-0">
+                                <img src="https://img.icons8.com/color/512/spotify--v1.png"
+                                    class="w-full h-full object-contain p-2">
                             </div>
                             <div>
-                                <p class="text-[8px] font-bold text-slate-400 uppercase tracking-widest">Streaming</p>
-                                <p class="text-sm font-black text-slate-800 italic leading-none">Spotify Fam</p>
+                                <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Streaming</p>
+                                <p class="text-sm font-black text-slate-800 italic">Spotify Fam</p>
                             </div>
                         </div>
-                        <div class="text-lg font-black text-slate-800 italic">Rp 15.000</div>
-                        <p class="text-[9px] text-zinc-400 mt-1 italic">Dengar musik offline.</p>
+                        <div class="text-xl font-black text-slate-800 italic">Rp 15.000</div>
                     </div>
 
                     <div
-                        class="card-float-3 absolute top-1/2 -left-10 bg-white p-5 rounded-[2.5rem] shadow-2xl border border-pink-50 z-10 w-52">
+                        class="card-float-3 absolute top-1/2 -translate-y-1/2 -left-10 md:-left-16 bg-white p-5 rounded-[2.5rem] shadow-2xl border border-pink-50 z-10 w-52">
                         <div class="flex items-center gap-4 mb-3">
-                            <div class="w-10 h-10 bg-slate-100 rounded-2xl overflow-hidden flex-shrink-0">
-                                <img src="https://via.placeholder.com/150" alt="CapCut"
-                                    class="w-full h-full object-cover">
+                            <div class="w-10 h-10 bg-slate-100 rounded-xl overflow-hidden flex-shrink-0">
+                                <img src="https://img.icons8.com/fluency/512/capcut.png"
+                                    class="w-full h-full object-contain p-2">
                             </div>
                             <div>
                                 <p class="text-[8px] font-bold text-slate-400 uppercase tracking-widest">Editing</p>
-                                <p class="text-sm font-black text-slate-800 italic leading-none">CapCut Pro</p>
+                                <p class="text-xs font-black text-slate-800 italic">CapCut Pro</p>
                             </div>
                         </div>
                         <div class="text-lg font-black text-slate-800 italic">Rp 10.000</div>
-                        <p class="text-[9px] text-zinc-400 mt-1">Unlock all templates.</p>
                     </div>
                 </div>
 
@@ -395,12 +399,10 @@
     </footer>
 
     <script>
-        // --- SEMUA SCRIPT DIGABUNG DAN DIPERBAIKI ---
-
-        // 1. Registrasi Plugin (Harus di paling atas)
+        // 1. Registrasi Plugin
         gsap.registerPlugin(ScrollTrigger);
 
-        // 2. Inisialisasi Elemen
+        // 2. Inisialisasi Elemen Dasar
         const searchInput = document.getElementById('searchInput');
         const appCards = document.querySelectorAll('.app-card');
         const noResults = document.getElementById('noResults');
@@ -410,26 +412,10 @@
         const closeIcon = document.getElementById('close-icon');
         const mobileLinks = document.querySelectorAll('.mobile-link');
 
-        // 3. SETUP AWAL GSAP (Mencegah Flicker)
-        gsap.set(".app-card", {
-            opacity: 0,
-            y: 50,
-            scale: 0.9
-        });
-
-        // 4. FUNGSI TOGGLE MENU
-        function toggleMenu() {
-            menu.classList.toggle('hidden');
-            menuIcon.classList.toggle('hidden');
-            closeIcon.classList.toggle('hidden');
-        }
-        if (btn) btn.addEventListener('click', toggleMenu);
-        mobileLinks.forEach(link => link.addEventListener('click', toggleMenu));
-
-        // 5. ANIMASI HEADER & HERO (Digabung agar Rapi)
+        // 3. REVEAL ANIMASI AWAL (Satu Timeline Utama)
         const masterTl = gsap.timeline();
 
-        // Animasi Navbar
+        // Navbar
         masterTl.from("nav", {
             y: -100,
             opacity: 0,
@@ -437,7 +423,7 @@
             ease: "power4.out"
         });
 
-        // Animasi Teks Hero
+        // Hero Text
         masterTl.from(".hero-text > *", {
             x: -50,
             opacity: 0,
@@ -446,7 +432,7 @@
             ease: "power4.out"
         }, "-=0.5");
 
-        // Animasi Kartu Melayang di Header (Reveal awal)
+        // Hero Cards Reveal
         masterTl.from(".hero-visual div[class*='card-float']", {
             y: 100,
             opacity: 0,
@@ -455,30 +441,24 @@
             ease: "back.out(1.7)"
         }, "-=1");
 
-        // Animasi Looping Melayang (Aktif Terus)
-        // Kartu Netflix melayang lebih lebar dan lambat
+        // 4. ANIMASI LOOPING MELAYANG (AKTIF TERUS)
         gsap.to(".card-float-1", {
             y: -25,
-            x: 15,
-            rotation: 2,
+            x: 10,
             duration: 4,
             repeat: -1,
             yoyo: true,
             ease: "sine.inOut"
         });
-
-        // Kartu Spotify melayang lebih cepat dengan pola berbeda
         gsap.to(".card-float-2", {
             y: 20,
-            x: -10,
-            rotation: -2,
+            x: -15,
             duration: 3.5,
             repeat: -1,
             yoyo: true,
             ease: "sine.inOut",
-            delay: 0.5
+            delay: 0.3
         });
-
         gsap.to(".card-float-3", {
             y: -15,
             x: 10,
@@ -490,13 +470,27 @@
             delay: 0.6
         });
 
+        // 5. SETUP KATALOG (Mencegah Flicker)
+        gsap.set(".app-card", {
+            opacity: 0,
+            y: 50,
+            scale: 0.9
+        });
 
-        // 6. LOGIKA SEARCH (Sync dengan GSAP)
+        // 6. FUNGSI TOGGLE MENU
+        function toggleMenu() {
+            menu.classList.toggle('hidden');
+            menuIcon.classList.toggle('hidden');
+            closeIcon.classList.toggle('hidden');
+        }
+        if (btn) btn.addEventListener('click', toggleMenu);
+        mobileLinks.forEach(link => link.addEventListener('click', toggleMenu));
+
+        // 7. LOGIKA SEARCH
         if (searchInput) {
             searchInput.addEventListener('input', function() {
                 const searchTerm = this.value.toLowerCase();
                 let hasResults = false;
-
                 appCards.forEach(card => {
                     const appName = card.getAttribute('data-name').toLowerCase();
                     if (appName.includes(searchTerm)) {
@@ -505,8 +499,7 @@
                             opacity: 1,
                             scale: 1,
                             y: 0,
-                            duration: 0.4,
-                            ease: "power2.out"
+                            duration: 0.3
                         });
                         hasResults = true;
                     } else {
@@ -514,15 +507,12 @@
                         card.style.opacity = '0';
                     }
                 });
-
-                if (noResults) {
-                    hasResults ? noResults.classList.add('hidden') : noResults.classList.remove('hidden');
-                }
+                hasResults ? noResults.classList.add('hidden') : noResults.classList.remove('hidden');
             });
         }
 
-        // 7. SWIPER (Testimonial)
-        var swiper = new Swiper(".testimonySwiper", {
+        // 8. SWIPER
+        new Swiper(".testimonySwiper", {
             slidesPerView: 1,
             spaceBetween: 20,
             loop: true,
@@ -536,31 +526,27 @@
             },
             breakpoints: {
                 640: {
-                    slidesPerView: 2,
-                    spaceBetween: 30
+                    slidesPerView: 2
                 },
                 1024: {
-                    slidesPerView: 3,
-                    spaceBetween: 40
-                },
+                    slidesPerView: 3
+                }
             },
         });
 
-        // 8. ANIMASI SECTION (ScrollTrigger)
-        // Section Cara Order
+        // 9. SCROLL ANIMATIONS
         gsap.from("#cara-order div.bg-white", {
             scrollTrigger: {
                 trigger: "#cara-order",
-                start: "top 85%",
+                start: "top 80%"
             },
             y: 50,
             opacity: 0,
-            duration: 0.8,
+            duration: 0.6,
             stagger: 0.2,
             ease: "power2.out"
         });
 
-        // Katalog Akun (Reveal on Scroll)
         gsap.to(".app-card", {
             scrollTrigger: {
                 trigger: "#appGrid",
@@ -573,26 +559,20 @@
             duration: 0.8,
             stagger: 0.1,
             ease: "back.out(1.2)",
-            onComplete: function() {
-                // Hapus transform agar tidak mengganggu layout CSS statis
-                gsap.set(".app-card", {
-                    clearProps: "y,scale,transform"
-                });
-            }
+            onComplete: () => gsap.set(".app-card", {
+                clearProps: "y,scale,transform"
+            })
         });
 
-        // 9. Hover Magnetik untuk Tombol Pink
-        const buttons = document.querySelectorAll('.bg-pink-500');
-        buttons.forEach(btn => {
-            btn.addEventListener('mouseenter', () => gsap.to(btn, {
+        // 10. HOVER MAGNETIK
+        document.querySelectorAll('.bg-pink-500').forEach(b => {
+            b.addEventListener('mouseenter', () => gsap.to(b, {
                 scale: 1.05,
-                duration: 0.3,
-                ease: "power1.out"
+                duration: 0.3
             }));
-            btn.addEventListener('mouseleave', () => gsap.to(btn, {
+            b.addEventListener('mouseleave', () => gsap.to(b, {
                 scale: 1,
-                duration: 0.3,
-                ease: "power1.out"
+                duration: 0.3
             }));
         });
     </script>
