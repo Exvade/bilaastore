@@ -45,8 +45,13 @@
         }
 
         .app-card {
-            opacity: 0;
-            /* Sembunyikan secara default agar tidak flicker */
+            will-change: transform, opacity;
+        }
+
+        /* Tambahan agar saat pencarian fungsionalitas display tidak terganggu GSAP */
+        .app-card[style*="display: none"] {
+            opacity: 0 !important;
+            transform: scale(0.9) !important;
         }
     </style>
 
@@ -319,6 +324,9 @@
     </footer>
 
     <script>
+        // --- SEMUA SCRIPT DIGABUNG DI SINI ---
+
+        // Inisialisasi Elemen
         const searchInput = document.getElementById('searchInput');
         const appCards = document.querySelectorAll('.app-card');
         const noResults = document.getElementById('noResults');
@@ -328,71 +336,83 @@
         const closeIcon = document.getElementById('close-icon');
         const mobileLinks = document.querySelectorAll('.mobile-link');
 
-        // Fungsi Toggle Menu
+        // Registrasi ScrollTrigger
+        gsap.registerPlugin(ScrollTrigger);
+
+        // 1. SETUP AWAL GSAP (Agar tidak flicker dan tidak hilang)
+        // Kita set opacity 0 lewat JS, bukan CSS statis
+        gsap.set(".app-card", {
+            opacity: 0,
+            y: 50,
+            scale: 0.9
+        });
+
+        // 2. FUNGSI TOGGLE MENU
         function toggleMenu() {
             menu.classList.toggle('hidden');
             menuIcon.classList.toggle('hidden');
             closeIcon.classList.toggle('hidden');
         }
-
         btn.addEventListener('click', toggleMenu);
+        mobileLinks.forEach(link => link.addEventListener('click', toggleMenu));
 
-        // Tutup menu saat link diklik
-        mobileLinks.forEach(link => {
-            link.addEventListener('click', toggleMenu);
-        });
+        // 3. LOGIKA SEARCH (Tetap di atas animasi agar tidak tertimpa)
         searchInput.addEventListener('input', function() {
             const searchTerm = this.value.toLowerCase();
             let hasResults = false;
 
             appCards.forEach(card => {
                 const appName = card.getAttribute('data-name');
-
                 if (appName.includes(searchTerm)) {
                     card.style.display = 'block';
+                    // Pastikan saat muncul kembali, opacity-nya 1
+                    gsap.to(card, {
+                        opacity: 1,
+                        scale: 1,
+                        y: 0,
+                        duration: 0.3
+                    });
                     hasResults = true;
                 } else {
                     card.style.display = 'none';
+                    card.style.opacity = '0'; // Set manual agar tidak transparan saat difilter
                 }
             });
 
-            // Tampilkan pesan jika tidak ada aplikasi yang cocok
             if (hasResults) {
                 noResults.classList.add('hidden');
             } else {
                 noResults.classList.remove('hidden');
             }
         });
+
+        // 4. SWIPER
         var swiper = new Swiper(".testimonySwiper", {
             slidesPerView: 1,
             spaceBetween: 20,
-            loop: true, // Membuat looping terus menerus
+            loop: true,
             autoplay: {
-                delay: 3000, // Berjalan setiap 3 detik
-                disableOnInteraction: false,
+                delay: 3000,
+                disableOnInteraction: false
             },
             pagination: {
                 el: ".swiper-pagination",
-                clickable: true,
+                clickable: true
             },
             breakpoints: {
-                // Ketika layar >= 640px (Tablet)
                 640: {
                     slidesPerView: 2,
-                    spaceBetween: 30,
+                    spaceBetween: 30
                 },
-                // Ketika layar >= 1024px (Laptop)
                 1024: {
                     slidesPerView: 3,
-                    spaceBetween: 40,
+                    spaceBetween: 40
                 },
             },
         });
 
-        // Registrasi ScrollTrigger
-        gsap.registerPlugin(ScrollTrigger);
-
-        // 1. Animasi Navbar (Muncul dari atas)
+        // 5. ANIMASI GSAP (REVEAL)
+        // Navbar
         gsap.from("nav", {
             y: -100,
             opacity: 0,
@@ -400,7 +420,7 @@
             ease: "power4.out"
         });
 
-        // 2. Animasi Hero Section (Header)
+        // Hero Header
         const heroTl = gsap.timeline();
         heroTl.from("header h2", {
                 y: 50,
@@ -420,31 +440,24 @@
                 ease: "back.out(1.7)"
             }, "-=0.6");
 
-        // 3. Animasi Grid Cara Order (Muncul satu-satu saat scroll)
+        // Cara Order
         gsap.from("#cara-order div.bg-white", {
             scrollTrigger: {
                 trigger: "#cara-order",
-                start: "top 80%", // Mulai animasi saat section terlihat 80% di layar
+                start: "top 80%",
             },
             y: 50,
             opacity: 0,
             duration: 0.6,
-            stagger: 0.2, // Memberi jeda antar elemen (muncul bergantian)
+            stagger: 0.2,
             ease: "power2.out"
         });
 
-        // Animasi Katalog Produk yang diperbaiki
-        // Gunakan fromTo untuk kontrol penuh
-        gsap.fromTo(".app-card", {
-            opacity: 0,
-            y: 50,
-            scale: 0.9
-        }, {
+        // PERBAIKAN UTAMA: Animasi Katalog
+        gsap.to(".app-card", {
             scrollTrigger: {
                 trigger: "#appGrid",
                 start: "top 80%",
-                // toggleActions menentukan apa yang terjadi saat scroll naik/turun
-                // play = jalankan, none = jangan lakukan apa-apa saat lewat
                 toggleActions: "play none none none"
             },
             opacity: 1,
@@ -453,25 +466,25 @@
             duration: 0.8,
             stagger: 0.1,
             ease: "back.out(1.2)",
-            // Menghapus inline style GSAP setelah selesai agar CSS normal/Search bekerja
-            clearProps: "opacity,transform"
+            onComplete: function() {
+                // Kita hapus transform saja, tapi biarkan opacity tetap diatur oleh class/search
+                gsap.set(".app-card", {
+                    clearProps: "y,scale,transform"
+                });
+            }
         });
 
-        // 5. Efek Hover Magnetik (Opsional - Sangat Keren untuk Tombol)
+        // Hover Magnetik
         const buttons = document.querySelectorAll('.bg-pink-500');
         buttons.forEach(btn => {
-            btn.addEventListener('mouseenter', () => {
-                gsap.to(btn, {
-                    scale: 1.05,
-                    duration: 0.3
-                });
-            });
-            btn.addEventListener('mouseleave', () => {
-                gsap.to(btn, {
-                    scale: 1,
-                    duration: 0.3
-                });
-            });
+            btn.addEventListener('mouseenter', () => gsap.to(btn, {
+                scale: 1.05,
+                duration: 0.3
+            }));
+            btn.addEventListener('mouseleave', () => gsap.to(btn, {
+                scale: 1,
+                duration: 0.3
+            }));
         });
     </script>
 </body>
