@@ -108,15 +108,76 @@
 
     <div class="h-20"></div>
 
-    <header class="py-20 px-4 text-center bg-gradient-to-b from-white to-pink-50">
-        <div
-            class="inline-block px-4 py-1.5 mb-6 text-xs font-bold tracking-wider text-pink-500 uppercase bg-pink-100 rounded-full">
-            Trusted & Fast Response ✨
+    <header class="relative py-16 lg:py-24 px-4 bg-gradient-to-b from-white to-pink-50 overflow-hidden">
+        <div class="container mx-auto max-w-6xl grid lg:grid-cols-2 gap-16 items-center">
+
+            <div class="hero-text z-10">
+                <div
+                    class="inline-flex items-center gap-2 px-3 py-1 mb-6 text-[10px] font-bold tracking-[0.2em] text-pink-500 bg-white border border-pink-100 rounded-md uppercase">
+                    Premium Digital Assistant
+                </div>
+
+                <h2 class="text-5xl md:text-6xl font-black text-slate-900 mb-6 leading-[1.1] tracking-tight">
+                    Streaming Berkualitas, <br>
+                    <span class="text-pink-500">Harga Terjangkau.</span>
+                </h2>
+
+                <p class="text-slate-500 text-lg mb-10 max-w-md leading-relaxed">
+                    Akses resmi Netflix, Spotify, hingga YouTube Premium tanpa iklan. Layanan cepat, legal, dan dukungan
+                    garansi penuh setiap hari.
+                </p>
+
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#katalog"
+                        class="bg-pink-500 text-white px-10 py-4 rounded-xl font-bold text-base shadow-xl shadow-pink-200 hover:bg-pink-600 transition-all text-center">
+                        Lihat Paket Akun
+                    </a>
+                    <div class="flex items-center gap-3 px-6 py-4 bg-white/50 rounded-xl border border-slate-100">
+                        <span class="text-sm font-bold text-slate-600">🛡️ Full Garansi</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="relative h-[400px] hidden lg:block hero-visual">
+                <div
+                    class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-pink-200 rounded-full blur-[100px] opacity-40">
+                </div>
+
+                <div
+                    class="card-float-1 absolute top-0 right-10 w-64 bg-white p-6 rounded-[2rem] shadow-2xl border border-pink-50 z-30">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div
+                            class="w-10 h-10 bg-red-500 rounded-xl flex items-center justify-center text-white font-bold">
+                            N</div>
+                        <span class="font-bold text-slate-800 text-sm italic">Netflix Premium</span>
+                    </div>
+                    <p class="text-2xl font-black text-slate-900">Rp 25.000</p>
+                    <p class="text-[10px] text-slate-400 uppercase tracking-widest mt-1 italic">Ultra HD 4K + HDR</p>
+                </div>
+
+                <div
+                    class="card-float-2 absolute bottom-20 left-0 w-56 bg-white p-6 rounded-[2rem] shadow-2xl border border-pink-50 z-20">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div
+                            class="w-10 h-10 bg-green-500 rounded-xl flex items-center justify-center text-white font-bold">
+                            S</div>
+                        <span class="font-bold text-slate-800 text-sm italic">Spotify Fam</span>
+                    </div>
+                    <p class="text-xl font-black text-slate-900">Rp 15.000</p>
+                    <p class="text-[10px] text-slate-400 uppercase tracking-widest mt-1 italic">No Ads • Offline</p>
+                </div>
+
+                <div
+                    class="card-float-3 absolute top-32 -left-10 bg-pink-500 text-white p-5 rounded-[1.5rem] shadow-xl z-40 rotate-12">
+                    <div class="flex items-center gap-3">
+                        <span class="text-xl">✨</span>
+                        <span
+                            class="text-xs font-black uppercase tracking-tighter italic leading-none">Proses<br>Kilat!</span>
+                    </div>
+                </div>
+            </div>
+
         </div>
-        <h2 class="text-4xl md:text-6xl font-extrabold text-slate-800 mb-6 leading-tight">Nonton Premium <br><span
-                class="text-pink-500 font-serif italic">Gak Harus Mahal!</span></h2>
-        <p class="text-slate-500 max-w-2xl mx-auto mb-10 text-lg">Nikmati akses premium Netflix, Spotify, Disney+, dan
-            lainnya dengan harga kantong pelajar. Aman dan bergaransi penuh!</p>
     </header>
 
     <section id="cara-order" class="container mx-auto px-4 py-16">
@@ -335,6 +396,54 @@
         const menuIcon = document.getElementById('menu-icon');
         const closeIcon = document.getElementById('close-icon');
         const mobileLinks = document.querySelectorAll('.mobile-link');
+        // 1. Reveal Animasi (Sekali muncul saat page load)
+        const heroTl = gsap.timeline();
+        heroTl.from(".hero-text > *", {
+                x: -50,
+                opacity: 0,
+                duration: 1,
+                stagger: 0.2,
+                ease: "power4.out"
+            })
+            .from(".hero-visual div[class*='card-float']", {
+                y: 100,
+                opacity: 0,
+                duration: 1.2,
+                stagger: 0.2,
+                ease: "back.out(1.7)"
+            }, "-=1");
+
+        // 2. Loop Melayang (Terus menerus/Aktif)
+        // Kartu 1: Gerakan lambat & lebar
+        gsap.to(".card-float-1", {
+            y: -20,
+            x: 10,
+            duration: 3,
+            repeat: -1,
+            yoyo: true,
+            ease: "sine.inOut"
+        });
+
+        // Kartu 2: Gerakan lebih cepat & kecil
+        gsap.to(".card-float-2", {
+            y: 15,
+            x: -5,
+            duration: 4,
+            repeat: -1,
+            yoyo: true,
+            ease: "sine.inOut",
+            delay: 0.5
+        });
+
+        // Kartu 3: Rotasi kecil & melayang
+        gsap.to(".card-float-3", {
+            rotation: 5,
+            y: -10,
+            duration: 2.5,
+            repeat: -1,
+            yoyo: true,
+            ease: "power1.inOut"
+        });
 
         // Registrasi ScrollTrigger
         gsap.registerPlugin(ScrollTrigger);
