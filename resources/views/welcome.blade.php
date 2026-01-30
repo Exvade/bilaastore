@@ -108,75 +108,58 @@
 
     <div class="h-20"></div>
 
-    <header class="relative py-16 lg:py-24 px-4 bg-gradient-to-b from-white to-pink-50 overflow-hidden">
-        <div class="container mx-auto max-w-6xl grid lg:grid-cols-2 gap-16 items-center">
+    <header class="relative pt-20 pb-16 px-4 bg-white overflow-hidden">
+        <div class="container mx-auto max-w-6xl">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
 
-            <div class="hero-text z-10">
-                <div
-                    class="inline-flex items-center gap-2 px-3 py-1 mb-6 text-[10px] font-bold tracking-[0.2em] text-pink-500 bg-white border border-pink-100 rounded-md uppercase">
-                    Premium Digital Assistant
-                </div>
-
-                <h2 class="text-5xl md:text-6xl font-black text-slate-900 mb-6 leading-[1.1] tracking-tight">
-                    Streaming Berkualitas, <br>
-                    <span class="text-pink-500">Harga Terjangkau.</span>
-                </h2>
-
-                <p class="text-slate-500 text-lg mb-10 max-w-md leading-relaxed">
-                    Akses resmi Netflix, Spotify, hingga YouTube Premium tanpa iklan. Layanan cepat, legal, dan dukungan
-                    garansi penuh setiap hari.
-                </p>
-
-                <div class="flex flex-col sm:flex-row gap-4">
-                    <a href="#katalog"
-                        class="bg-pink-500 text-white px-10 py-4 rounded-xl font-bold text-base shadow-xl shadow-pink-200 hover:bg-pink-600 transition-all text-center">
-                        Lihat Paket Akun
-                    </a>
-                    <div class="flex items-center gap-3 px-6 py-4 bg-white/50 rounded-xl border border-slate-100">
-                        <span class="text-sm font-bold text-slate-600">🛡️ Full Garansi</span>
+                <div class="hero-text">
+                    <div class="flex items-center gap-2 mb-6">
+                        <span class="w-2 h-2 rounded-full bg-pink-500 animate-pulse"></span>
+                        <span class="text-xs font-bold tracking-widest uppercase text-slate-400">Trusted Store
+                            2026</span>
+                    </div>
+                    <h2 class="text-5xl md:text-6xl font-black text-slate-900 leading-[1.1] mb-6">
+                        Akses Premium. <br>
+                        <span class="text-pink-500">Harga Minimum.</span>
+                    </h2>
+                    <p class="text-slate-500 text-lg md:text-xl leading-relaxed max-w-md mb-10">
+                        Nikmati konten favoritmu tanpa batas. Legal, aman, dan didukung garansi penuh selama
+                        berlangganan.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="#katalog"
+                            class="bg-slate-900 text-white px-8 py-4 rounded-2xl font-bold hover:bg-pink-500 transition-all">
+                            Beli Sekarang
+                        </a>
                     </div>
                 </div>
+
+                <div class="relative h-[400px] hidden lg:flex items-center justify-center hero-visual">
+                    <div
+                        class="float-card absolute top-10 right-0 w-64 bg-white p-6 rounded-[2.5rem] shadow-2xl border border-pink-50 z-20">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div
+                                class="w-10 h-10 bg-red-600 rounded-xl flex items-center justify-center text-white font-bold">
+                                N</div>
+                            <div class="h-2 w-20 bg-slate-100 rounded-full"></div>
+                        </div>
+                        <div class="h-4 w-full bg-slate-50 rounded-full mb-2"></div>
+                        <div class="text-2xl font-black text-pink-500">Rp 25k</div>
+                    </div>
+
+                    <div
+                        class="float-card absolute bottom-10 left-0 w-56 bg-white p-6 rounded-[2.5rem] shadow-2xl border border-pink-50 z-10">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div
+                                class="w-10 h-10 bg-green-500 rounded-xl flex items-center justify-center text-white font-bold">
+                                S</div>
+                            <div class="h-2 w-20 bg-slate-100 rounded-full"></div>
+                        </div>
+                        <div class="text-xl font-black text-slate-800">Rp 15k</div>
+                    </div>
+                </div>
+
             </div>
-
-            <div class="relative h-[400px] hidden lg:block hero-visual">
-                <div
-                    class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-pink-200 rounded-full blur-[100px] opacity-40">
-                </div>
-
-                <div
-                    class="card-float-1 absolute top-0 right-10 w-64 bg-white p-6 rounded-[2rem] shadow-2xl border border-pink-50 z-30">
-                    <div class="flex items-center gap-4 mb-4">
-                        <div
-                            class="w-10 h-10 bg-red-500 rounded-xl flex items-center justify-center text-white font-bold">
-                            N</div>
-                        <span class="font-bold text-slate-800 text-sm italic">Netflix Premium</span>
-                    </div>
-                    <p class="text-2xl font-black text-slate-900">Rp 25.000</p>
-                    <p class="text-[10px] text-slate-400 uppercase tracking-widest mt-1 italic">Ultra HD 4K + HDR</p>
-                </div>
-
-                <div
-                    class="card-float-2 absolute bottom-20 left-0 w-56 bg-white p-6 rounded-[2rem] shadow-2xl border border-pink-50 z-20">
-                    <div class="flex items-center gap-4 mb-4">
-                        <div
-                            class="w-10 h-10 bg-green-500 rounded-xl flex items-center justify-center text-white font-bold">
-                            S</div>
-                        <span class="font-bold text-slate-800 text-sm italic">Spotify Fam</span>
-                    </div>
-                    <p class="text-xl font-black text-slate-900">Rp 15.000</p>
-                    <p class="text-[10px] text-slate-400 uppercase tracking-widest mt-1 italic">No Ads • Offline</p>
-                </div>
-
-                <div
-                    class="card-float-3 absolute top-32 -left-10 bg-pink-500 text-white p-5 rounded-[1.5rem] shadow-xl z-40 rotate-12">
-                    <div class="flex items-center gap-3">
-                        <span class="text-xl">✨</span>
-                        <span
-                            class="text-xs font-black uppercase tracking-tighter italic leading-none">Proses<br>Kilat!</span>
-                    </div>
-                </div>
-            </div>
-
         </div>
     </header>
 
@@ -385,9 +368,12 @@
     </footer>
 
     <script>
-        // --- SEMUA SCRIPT DIGABUNG DI SINI ---
+        // --- SEMUA SCRIPT DIGABUNG DAN DIPERBAIKI ---
 
-        // Inisialisasi Elemen
+        // 1. Registrasi Plugin (Harus di paling atas)
+        gsap.registerPlugin(ScrollTrigger);
+
+        // 2. Inisialisasi Elemen
         const searchInput = document.getElementById('searchInput');
         const appCards = document.querySelectorAll('.app-card');
         const noResults = document.getElementById('noResults');
@@ -396,25 +382,53 @@
         const menuIcon = document.getElementById('menu-icon');
         const closeIcon = document.getElementById('close-icon');
         const mobileLinks = document.querySelectorAll('.mobile-link');
-        // 1. Reveal Animasi (Sekali muncul saat page load)
-        const heroTl = gsap.timeline();
-        heroTl.from(".hero-text > *", {
-                x: -50,
-                opacity: 0,
-                duration: 1,
-                stagger: 0.2,
-                ease: "power4.out"
-            })
-            .from(".hero-visual div[class*='card-float']", {
-                y: 100,
-                opacity: 0,
-                duration: 1.2,
-                stagger: 0.2,
-                ease: "back.out(1.7)"
-            }, "-=1");
 
-        // 2. Loop Melayang (Terus menerus/Aktif)
-        // Kartu 1: Gerakan lambat & lebar
+        // 3. SETUP AWAL GSAP (Mencegah Flicker)
+        gsap.set(".app-card", {
+            opacity: 0,
+            y: 50,
+            scale: 0.9
+        });
+
+        // 4. FUNGSI TOGGLE MENU
+        function toggleMenu() {
+            menu.classList.toggle('hidden');
+            menuIcon.classList.toggle('hidden');
+            closeIcon.classList.toggle('hidden');
+        }
+        if (btn) btn.addEventListener('click', toggleMenu);
+        mobileLinks.forEach(link => link.addEventListener('click', toggleMenu));
+
+        // 5. ANIMASI HEADER & HERO (Digabung agar Rapi)
+        const masterTl = gsap.timeline();
+
+        // Animasi Navbar
+        masterTl.from("nav", {
+            y: -100,
+            opacity: 0,
+            duration: 1,
+            ease: "power4.out"
+        });
+
+        // Animasi Teks Hero
+        masterTl.from(".hero-text > *", {
+            x: -50,
+            opacity: 0,
+            duration: 1,
+            stagger: 0.2,
+            ease: "power4.out"
+        }, "-=0.5");
+
+        // Animasi Kartu Melayang di Header (Reveal awal)
+        masterTl.from(".hero-visual div[class*='card-float']", {
+            y: 100,
+            opacity: 0,
+            duration: 1.2,
+            stagger: 0.2,
+            ease: "back.out(1.7)"
+        }, "-=1");
+
+        // Animasi Looping Melayang (Aktif Terus)
         gsap.to(".card-float-1", {
             y: -20,
             x: 10,
@@ -424,7 +438,6 @@
             ease: "sine.inOut"
         });
 
-        // Kartu 2: Gerakan lebih cepat & kecil
         gsap.to(".card-float-2", {
             y: 15,
             x: -5,
@@ -435,7 +448,6 @@
             delay: 0.5
         });
 
-        // Kartu 3: Rotasi kecil & melayang
         gsap.to(".card-float-3", {
             rotation: 5,
             y: -10,
@@ -445,57 +457,37 @@
             ease: "power1.inOut"
         });
 
-        // Registrasi ScrollTrigger
-        gsap.registerPlugin(ScrollTrigger);
+        // 6. LOGIKA SEARCH (Sync dengan GSAP)
+        if (searchInput) {
+            searchInput.addEventListener('input', function() {
+                const searchTerm = this.value.toLowerCase();
+                let hasResults = false;
 
-        // 1. SETUP AWAL GSAP (Agar tidak flicker dan tidak hilang)
-        // Kita set opacity 0 lewat JS, bukan CSS statis
-        gsap.set(".app-card", {
-            opacity: 0,
-            y: 50,
-            scale: 0.9
-        });
+                appCards.forEach(card => {
+                    const appName = card.getAttribute('data-name').toLowerCase();
+                    if (appName.includes(searchTerm)) {
+                        card.style.display = 'block';
+                        gsap.to(card, {
+                            opacity: 1,
+                            scale: 1,
+                            y: 0,
+                            duration: 0.4,
+                            ease: "power2.out"
+                        });
+                        hasResults = true;
+                    } else {
+                        card.style.display = 'none';
+                        card.style.opacity = '0';
+                    }
+                });
 
-        // 2. FUNGSI TOGGLE MENU
-        function toggleMenu() {
-            menu.classList.toggle('hidden');
-            menuIcon.classList.toggle('hidden');
-            closeIcon.classList.toggle('hidden');
-        }
-        btn.addEventListener('click', toggleMenu);
-        mobileLinks.forEach(link => link.addEventListener('click', toggleMenu));
-
-        // 3. LOGIKA SEARCH (Tetap di atas animasi agar tidak tertimpa)
-        searchInput.addEventListener('input', function() {
-            const searchTerm = this.value.toLowerCase();
-            let hasResults = false;
-
-            appCards.forEach(card => {
-                const appName = card.getAttribute('data-name');
-                if (appName.includes(searchTerm)) {
-                    card.style.display = 'block';
-                    // Pastikan saat muncul kembali, opacity-nya 1
-                    gsap.to(card, {
-                        opacity: 1,
-                        scale: 1,
-                        y: 0,
-                        duration: 0.3
-                    });
-                    hasResults = true;
-                } else {
-                    card.style.display = 'none';
-                    card.style.opacity = '0'; // Set manual agar tidak transparan saat difilter
+                if (noResults) {
+                    hasResults ? noResults.classList.add('hidden') : noResults.classList.remove('hidden');
                 }
             });
+        }
 
-            if (hasResults) {
-                noResults.classList.add('hidden');
-            } else {
-                noResults.classList.remove('hidden');
-            }
-        });
-
-        // 4. SWIPER
+        // 7. SWIPER (Testimonial)
         var swiper = new Swiper(".testimonySwiper", {
             slidesPerView: 1,
             spaceBetween: 20,
@@ -520,49 +512,21 @@
             },
         });
 
-        // 5. ANIMASI GSAP (REVEAL)
-        // Navbar
-        gsap.from("nav", {
-            y: -100,
-            opacity: 0,
-            duration: 1,
-            ease: "power4.out"
-        });
-
-        // Hero Header
-        const heroTl = gsap.timeline();
-        heroTl.from("header h2", {
-                y: 50,
-                opacity: 0,
-                duration: 0.8,
-                ease: "power3.out"
-            })
-            .from("header p", {
-                y: 30,
-                opacity: 0,
-                duration: 0.8
-            }, "-=0.4")
-            .from("header div.inline-block", {
-                scale: 0.5,
-                opacity: 0,
-                duration: 0.5,
-                ease: "back.out(1.7)"
-            }, "-=0.6");
-
-        // Cara Order
+        // 8. ANIMASI SECTION (ScrollTrigger)
+        // Section Cara Order
         gsap.from("#cara-order div.bg-white", {
             scrollTrigger: {
                 trigger: "#cara-order",
-                start: "top 80%",
+                start: "top 85%",
             },
             y: 50,
             opacity: 0,
-            duration: 0.6,
+            duration: 0.8,
             stagger: 0.2,
             ease: "power2.out"
         });
 
-        // PERBAIKAN UTAMA: Animasi Katalog
+        // Katalog Akun (Reveal on Scroll)
         gsap.to(".app-card", {
             scrollTrigger: {
                 trigger: "#appGrid",
@@ -576,23 +540,25 @@
             stagger: 0.1,
             ease: "back.out(1.2)",
             onComplete: function() {
-                // Kita hapus transform saja, tapi biarkan opacity tetap diatur oleh class/search
+                // Hapus transform agar tidak mengganggu layout CSS statis
                 gsap.set(".app-card", {
                     clearProps: "y,scale,transform"
                 });
             }
         });
 
-        // Hover Magnetik
+        // 9. Hover Magnetik untuk Tombol Pink
         const buttons = document.querySelectorAll('.bg-pink-500');
         buttons.forEach(btn => {
             btn.addEventListener('mouseenter', () => gsap.to(btn, {
                 scale: 1.05,
-                duration: 0.3
+                duration: 0.3,
+                ease: "power1.out"
             }));
             btn.addEventListener('mouseleave', () => gsap.to(btn, {
                 scale: 1,
-                duration: 0.3
+                duration: 0.3,
+                ease: "power1.out"
             }));
         });
     </script>
