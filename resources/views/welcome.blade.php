@@ -145,45 +145,45 @@
                         class="card-float-1 absolute top-0 w-56 bg-white p-5 rounded-[2rem] shadow-[0_15px_40px_rgba(0,0,0,0.04)] border border-pink-50 z-30">
                         <div class="flex items-center gap-3 mb-3">
                             <div class="w-10 h-10 bg-slate-100 rounded-xl overflow-hidden flex-shrink-0 p-1.5">
-                                <img src="https://img.icons8.com/color/512/netflix.png"
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/1/18/Netflix_2016_N_logo.svg"
                                     class="w-full h-full object-contain">
                             </div>
                             <div>
                                 <p class="text-[8px] font-bold text-slate-400 uppercase tracking-widest">Premium</p>
-                                <p class="text-xs font-black text-slate-800 italic">Netflix UHD</p>
+                                <p class="text-xs font-black text-slate-800 italic">Netflix</p>
                             </div>
                         </div>
-                        <div class="text-xl font-black text-pink-500 italic">Rp 25k</div>
+                        <div class="text-xl font-black text-pink-500 italic">Rp 5k</div>
                     </div>
 
                     <div
                         class="card-float-2 absolute bottom-5 left-4 md:left-10 w-52 bg-white p-5 rounded-[2rem] shadow-[0_15px_40px_rgba(0,0,0,0.04)] border border-pink-50 z-20">
                         <div class="flex items-center gap-3 mb-3">
                             <div class="w-10 h-10 bg-slate-100 rounded-xl overflow-hidden flex-shrink-0 p-1.5">
-                                <img src="https://img.icons8.com/color/512/spotify--v1.png"
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Spotify_icon.svg/960px-Spotify_icon.svg.png"
                                     class="w-full h-full object-contain">
                             </div>
                             <div>
-                                <p class="text-[8px] font-bold text-slate-400 uppercase tracking-widest">Streaming</p>
-                                <p class="text-xs font-black text-slate-800 italic">Spotify Fam</p>
+                                <p class="text-[8px] font-bold text-slate-400 uppercase tracking-widest">Music</p>
+                                <p class="text-xs font-black text-slate-800 italic">Spotify</p>
                             </div>
                         </div>
-                        <div class="text-lg font-black text-slate-800 italic">Rp 15k</div>
+                        <div class="text-lg font-black text-slate-800 italic">Rp 18k</div>
                     </div>
 
                     <div
                         class="card-float-3 absolute bottom-5 right-4 md:right-10 bg-white p-5 rounded-[2rem] shadow-[0_15px_40px_rgba(0,0,0,0.04)] border border-pink-50 z-10 w-52">
                         <div class="flex items-center gap-3 mb-3">
                             <div class="w-10 h-10 bg-slate-100 rounded-xl overflow-hidden flex-shrink-0 p-1.5">
-                                <img src="https://img.icons8.com/fluency/512/capcut.png"
+                                <img src="https://upload.wikimedia.org/wikipedia/id/3/36/CapCut_logo.png"
                                     class="w-full h-full object-contain">
                             </div>
                             <div>
                                 <p class="text-[8px] font-bold text-slate-400 uppercase tracking-widest">Editing</p>
-                                <p class="text-xs font-black text-slate-800 italic">CapCut Pro</p>
+                                <p class="text-xs font-black text-slate-800 italic">CapCut</p>
                             </div>
                         </div>
-                        <div class="text-lg font-black text-slate-800 italic">Rp 10k</div>
+                        <div class="text-lg font-black text-slate-800 italic">Rp 3k</div>
                     </div>
                 </div>
 
