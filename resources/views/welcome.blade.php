@@ -134,42 +134,55 @@
                     </div>
                 </div>
 
-                <div class="relative h-[450px] hidden lg:flex items-center justify-center hero-visual">
-                    <div class="absolute w-64 h-64 bg-pink-100 rounded-full blur-[80px] opacity-50"></div>
+                <div class="relative h-[500px] hidden lg:flex items-center justify-center hero-visual">
+                    <div class="absolute w-80 h-80 bg-pink-100 rounded-full blur-[100px] opacity-50"></div>
 
                     <div
-                        class="card-float-1 absolute top-5 right-0 w-64 bg-white p-6 rounded-[2.5rem] shadow-2xl border border-pink-50 z-20">
-                        <div class="flex items-center gap-4 mb-4">
-                            <div class="w-12 h-12 bg-slate-100 rounded-2xl overflow-hidden flex-shrink-0">
-                                <img src="https://via.placeholder.com/150" alt="App Logo"
+                        class="card-float-1 absolute top-0 right-0 w-60 bg-white p-5 rounded-[2.5rem] shadow-2xl border border-pink-50 z-30">
+                        <div class="flex items-center gap-4 mb-3">
+                            <div class="w-10 h-10 bg-slate-100 rounded-2xl overflow-hidden flex-shrink-0">
+                                <img src="https://via.placeholder.com/150" alt="Netflix"
                                     class="w-full h-full object-cover">
                             </div>
                             <div>
-                                <p class="text-xs font-bold text-slate-400 uppercase tracking-widest">Premium</p>
-                                <p class="text-sm font-black text-slate-800 italic">Netflix UHD</p>
+                                <p class="text-[8px] font-bold text-slate-400 uppercase tracking-widest">Premium</p>
+                                <p class="text-sm font-black text-slate-800 italic leading-none">Netflix UHD</p>
                             </div>
                         </div>
-                        <div class="space-y-2 mb-4">
-                            <p class="text-[10px] text-zinc-400 leading-tight">Akses film kualitas 4K + HDR tanpa
-                                gangguan iklan.</p>
-                        </div>
-                        <div class="text-2xl font-black text-pink-500 italic">Rp 25.000</div>
+                        <p class="text-[10px] text-zinc-400 leading-tight mb-3">Nonton 4K HDR tanpa iklan.</p>
+                        <div class="text-xl font-black text-pink-500 italic">Rp 25.000</div>
                     </div>
 
                     <div
-                        class="card-float-2 absolute bottom-5 left-0 w-60 bg-white p-6 rounded-[2.5rem] shadow-2xl border border-pink-50 z-10">
-                        <div class="flex items-center gap-4 mb-4">
-                            <div class="w-12 h-12 bg-slate-100 rounded-2xl overflow-hidden flex-shrink-0">
-                                <img src="https://via.placeholder.com/150" alt="App Logo"
+                        class="card-float-2 absolute bottom-10 left-0 w-56 bg-white p-5 rounded-[2.5rem] shadow-2xl border border-pink-50 z-20">
+                        <div class="flex items-center gap-4 mb-3">
+                            <div class="w-10 h-10 bg-slate-100 rounded-2xl overflow-hidden flex-shrink-0">
+                                <img src="https://via.placeholder.com/150" alt="Spotify"
                                     class="w-full h-full object-cover">
                             </div>
                             <div>
-                                <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Streaming</p>
-                                <p class="text-sm font-black text-slate-800 italic">Spotify Fam</p>
+                                <p class="text-[8px] font-bold text-slate-400 uppercase tracking-widest">Streaming</p>
+                                <p class="text-sm font-black text-slate-800 italic leading-none">Spotify Fam</p>
                             </div>
                         </div>
-                        <div class="text-xl font-black text-slate-800 italic">Rp 15.000</div>
-                        <p class="text-[10px] text-zinc-400 mt-1 italic">Garansi penuh 30 hari.</p>
+                        <div class="text-lg font-black text-slate-800 italic">Rp 15.000</div>
+                        <p class="text-[9px] text-zinc-400 mt-1 italic">Dengar musik offline.</p>
+                    </div>
+
+                    <div
+                        class="card-float-3 absolute top-1/2 -left-10 bg-white p-5 rounded-[2.5rem] shadow-2xl border border-pink-50 z-10 w-52">
+                        <div class="flex items-center gap-4 mb-3">
+                            <div class="w-10 h-10 bg-slate-100 rounded-2xl overflow-hidden flex-shrink-0">
+                                <img src="https://via.placeholder.com/150" alt="CapCut"
+                                    class="w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <p class="text-[8px] font-bold text-slate-400 uppercase tracking-widest">Editing</p>
+                                <p class="text-sm font-black text-slate-800 italic leading-none">CapCut Pro</p>
+                            </div>
+                        </div>
+                        <div class="text-lg font-black text-slate-800 italic">Rp 10.000</div>
+                        <p class="text-[9px] text-zinc-400 mt-1">Unlock all templates.</p>
                     </div>
                 </div>
 
@@ -464,6 +477,17 @@
             yoyo: true,
             ease: "sine.inOut",
             delay: 0.5
+        });
+
+        gsap.to(".card-float-3", {
+            y: -15,
+            x: 10,
+            rotation: 3,
+            duration: 2.8,
+            repeat: -1,
+            yoyo: true,
+            ease: "sine.inOut",
+            delay: 0.6
         });
 
 
