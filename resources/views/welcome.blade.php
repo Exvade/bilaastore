@@ -43,6 +43,11 @@
         .backdrop-blur-lg {
             -webkit-backdrop-filter: blur(16px);
         }
+
+        .app-card {
+            opacity: 0;
+            /* Sembunyikan secara default agar tidak flicker */
+        }
     </style>
 
 </head>
@@ -428,17 +433,22 @@
             ease: "power2.out"
         });
 
-        // 4. Animasi Katalog Produk (Muncul saat scroll)
-        gsap.from(".app-card", {
+        // Animasi Katalog Produk yang diperbaiki
+        gsap.to(".app-card", {
             scrollTrigger: {
-                trigger: "#katalog",
-                start: "top 70%",
+                trigger: "#appGrid", // Trigger pada kontainer grid agar lebih stabil
+                start: "top 80%",
             },
-            scale: 0.8,
+            y: 30,
             opacity: 0,
-            duration: 0.7,
-            stagger: 0.1,
-            ease: "back.out(1.2)"
+            scale: 0.9,
+            duration: 0.8,
+            stagger: {
+                amount: 0.5, // Total waktu untuk semua kartu muncul
+                grid: "auto", // Muncul berdasarkan urutan baris
+            },
+            ease: "back.out(1.4)",
+            clearProps: "all" // PENTING: Menghapus gaya GSAP setelah animasi selesai agar Search lancar
         });
 
         // 5. Efek Hover Magnetik (Opsional - Sangat Keren untuk Tombol)
