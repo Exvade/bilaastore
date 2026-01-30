@@ -118,7 +118,8 @@
                     <div
                         class="inline-flex items-center gap-2 px-3 py-1 mb-4 bg-pink-50 border border-pink-100 rounded-lg">
                         <span class="w-1.5 h-1.5 rounded-full bg-pink-500 animate-pulse"></span>
-                        <span class="text-[9px] font-bold tracking-[0.2em] text-pink-500 uppercase">Trusted Store</span>
+                        <span class="text-[9px] font-bold tracking-[0.2em] text-pink-500 uppercase">Trusted Store Since
+                            2025</span>
                     </div>
 
                     <h2 class="text-4xl md:text-5xl font-black text-slate-900 leading-tight tracking-tight mb-6">
@@ -127,7 +128,7 @@
                     </h2>
 
                     <p class="text-slate-500 text-base md:text-lg leading-relaxed max-w-sm mb-8">
-                        Nikmati konten favoritmu tanpa batas. Legal, aman, dan bergaransi penuh selama berlangganan.
+                        Nikmati konten favoritmu tanpa batas. aman dan bergaransi penuh selama berlangganan.
                     </p>
 
                     <div class="flex flex-wrap gap-4">
