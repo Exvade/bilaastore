@@ -436,19 +436,16 @@
         // Animasi Katalog Produk yang diperbaiki
         gsap.to(".app-card", {
             scrollTrigger: {
-                trigger: "#appGrid", // Trigger pada kontainer grid agar lebih stabil
+                trigger: "#appGrid",
                 start: "top 80%",
             },
-            y: 30,
-            opacity: 0,
-            scale: 0.9,
+            opacity: 1,
+            y: 0,
+            scale: 1,
             duration: 0.8,
-            stagger: {
-                amount: 0.5, // Total waktu untuk semua kartu muncul
-                grid: "auto", // Muncul berdasarkan urutan baris
-            },
+            stagger: 0.1,
             ease: "back.out(1.4)",
-            clearProps: "all" // PENTING: Menghapus gaya GSAP setelah animasi selesai agar Search lancar
+            clearProps: "all"
         });
 
         // 5. Efek Hover Magnetik (Opsional - Sangat Keren untuk Tombol)
