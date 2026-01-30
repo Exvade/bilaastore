@@ -108,85 +108,82 @@
 
     <div class="h-20"></div>
 
-    <header class="relative pt-16 pb-24 lg:pt-32 lg:pb-40 px-4 bg-white overflow-hidden">
-        <div class="absolute top-0 right-0 w-1/3 h-full bg-pink-50/50 -skew-x-12 translate-x-20 z-0"></div>
+    <header class="relative pt-12 pb-16 lg:pt-20 lg:pb-24 px-4 bg-white overflow-hidden">
+        <div class="absolute top-0 right-0 w-1/4 h-full bg-pink-50/30 -skew-x-12 translate-x-10 z-0"></div>
 
         <div class="container mx-auto max-w-6xl relative z-10">
-            <div class="grid lg:grid-cols-2 gap-16 items-center">
+            <div class="grid lg:grid-cols-2 gap-8 items-center">
 
                 <div class="hero-text">
                     <div
-                        class="inline-flex items-center gap-2 px-3 py-1 mb-6 bg-pink-50 border border-pink-100 rounded-lg">
-                        <span class="w-2 h-2 rounded-full bg-pink-500 animate-pulse"></span>
-                        <span class="text-[10px] font-bold tracking-[0.2em] text-pink-500 uppercase">Trusted Store Since
-                            2024</span>
+                        class="inline-flex items-center gap-2 px-3 py-1 mb-4 bg-pink-50 border border-pink-100 rounded-lg">
+                        <span class="w-1.5 h-1.5 rounded-full bg-pink-500 animate-pulse"></span>
+                        <span class="text-[9px] font-bold tracking-[0.2em] text-pink-500 uppercase">Trusted Store</span>
                     </div>
 
-                    <h2 class="text-5xl md:text-7xl font-black text-slate-900 leading-[1.05] tracking-tight mb-8">
+                    <h2 class="text-4xl md:text-5xl font-black text-slate-900 leading-tight tracking-tight mb-6">
                         Akses Premium. <br>
-                        <span class="text-pink-500">Harga Minimum.</span>
+                        <span class="text-pink-500 italic">Harga Minimum.</span>
                     </h2>
 
-                    <p class="text-slate-500 text-lg md:text-xl leading-relaxed max-w-md mb-10">
-                        Nikmati konten favoritmu tanpa batas. Legal, aman, dan didukung garansi penuh selama
-                        berlangganan.
+                    <p class="text-slate-500 text-base md:text-lg leading-relaxed max-w-sm mb-8">
+                        Nikmati konten favoritmu tanpa batas. Legal, aman, dan bergaransi penuh selama berlangganan.
                     </p>
 
                     <div class="flex flex-wrap gap-4">
                         <a href="#katalog"
-                            class="bg-slate-900 text-white px-10 py-4 rounded-2xl font-bold hover:bg-pink-500 transition-all duration-300 shadow-xl shadow-slate-200">
+                            class="bg-slate-900 text-white px-8 py-3.5 rounded-xl font-bold hover:bg-pink-500 transition-all duration-300 shadow-lg shadow-slate-200 text-sm">
                             Beli Sekarang
                         </a>
                     </div>
                 </div>
 
-                <div class="relative h-[500px] flex items-center justify-center hero-visual">
-                    <div class="absolute w-72 h-72 bg-pink-200 rounded-full blur-[100px] opacity-40"></div>
+                <div class="relative h-[400px] flex items-center justify-center hero-visual mt-10 lg:mt-0">
+                    <div class="absolute w-60 h-60 bg-pink-100 rounded-full blur-[80px] opacity-40"></div>
 
                     <div
-                        class="card-float-1 absolute -top-5 -right-5 md:right-0 w-64 bg-white p-6 rounded-[2.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.05)] border border-pink-50 z-30">
-                        <div class="flex items-center gap-4 mb-4">
-                            <div class="w-12 h-12 bg-slate-100 rounded-2xl overflow-hidden flex-shrink-0">
+                        class="card-float-1 absolute top-0 w-56 bg-white p-5 rounded-[2rem] shadow-[0_15px_40px_rgba(0,0,0,0.04)] border border-pink-50 z-30">
+                        <div class="flex items-center gap-3 mb-3">
+                            <div class="w-10 h-10 bg-slate-100 rounded-xl overflow-hidden flex-shrink-0 p-1.5">
                                 <img src="https://img.icons8.com/color/512/netflix.png"
-                                    class="w-full h-full object-contain p-2">
+                                    class="w-full h-full object-contain">
                             </div>
                             <div>
-                                <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Premium</p>
-                                <p class="text-sm font-black text-slate-800 italic">Netflix UHD</p>
+                                <p class="text-[8px] font-bold text-slate-400 uppercase tracking-widest">Premium</p>
+                                <p class="text-xs font-black text-slate-800 italic">Netflix UHD</p>
                             </div>
                         </div>
-                        <p class="text-[11px] text-zinc-400 mb-4 italic">Nonton 4K HDR tanpa iklan.</p>
-                        <div class="text-2xl font-black text-pink-500 italic">Rp 25.000</div>
+                        <div class="text-xl font-black text-pink-500 italic">Rp 25k</div>
                     </div>
 
                     <div
-                        class="card-float-2 absolute bottom-5 -left-5 md:left-0 w-60 bg-white p-6 rounded-[2.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.05)] border border-pink-50 z-20">
-                        <div class="flex items-center gap-4 mb-4">
-                            <div class="w-12 h-12 bg-slate-100 rounded-2xl overflow-hidden flex-shrink-0">
+                        class="card-float-2 absolute bottom-5 left-4 md:left-10 w-52 bg-white p-5 rounded-[2rem] shadow-[0_15px_40px_rgba(0,0,0,0.04)] border border-pink-50 z-20">
+                        <div class="flex items-center gap-3 mb-3">
+                            <div class="w-10 h-10 bg-slate-100 rounded-xl overflow-hidden flex-shrink-0 p-1.5">
                                 <img src="https://img.icons8.com/color/512/spotify--v1.png"
-                                    class="w-full h-full object-contain p-2">
+                                    class="w-full h-full object-contain">
                             </div>
                             <div>
-                                <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Streaming</p>
-                                <p class="text-sm font-black text-slate-800 italic">Spotify Fam</p>
+                                <p class="text-[8px] font-bold text-slate-400 uppercase tracking-widest">Streaming</p>
+                                <p class="text-xs font-black text-slate-800 italic">Spotify Fam</p>
                             </div>
                         </div>
-                        <div class="text-xl font-black text-slate-800 italic">Rp 15.000</div>
+                        <div class="text-lg font-black text-slate-800 italic">Rp 15k</div>
                     </div>
 
                     <div
-                        class="card-float-3 absolute top-1/2 -translate-y-1/2 -left-10 md:-left-16 bg-white p-5 rounded-[2.5rem] shadow-2xl border border-pink-50 z-10 w-52">
-                        <div class="flex items-center gap-4 mb-3">
-                            <div class="w-10 h-10 bg-slate-100 rounded-xl overflow-hidden flex-shrink-0">
+                        class="card-float-3 absolute bottom-5 right-4 md:right-10 bg-white p-5 rounded-[2rem] shadow-[0_15px_40px_rgba(0,0,0,0.04)] border border-pink-50 z-10 w-52">
+                        <div class="flex items-center gap-3 mb-3">
+                            <div class="w-10 h-10 bg-slate-100 rounded-xl overflow-hidden flex-shrink-0 p-1.5">
                                 <img src="https://img.icons8.com/fluency/512/capcut.png"
-                                    class="w-full h-full object-contain p-2">
+                                    class="w-full h-full object-contain">
                             </div>
                             <div>
                                 <p class="text-[8px] font-bold text-slate-400 uppercase tracking-widest">Editing</p>
                                 <p class="text-xs font-black text-slate-800 italic">CapCut Pro</p>
                             </div>
                         </div>
-                        <div class="text-lg font-black text-slate-800 italic">Rp 10.000</div>
+                        <div class="text-lg font-black text-slate-800 italic">Rp 10k</div>
                     </div>
                 </div>
 
