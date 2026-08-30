@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="id" class="scroll-smooth">
+<html lang="id" class="scroll-smooth overflow-x-hidden">
 
 <head>
     <meta charset="UTF-8">
@@ -104,7 +104,7 @@
     </style>
 </head>
 
-<body class="text-slate-800 dark:text-white antialiased selection:bg-pink-300 selection:text-pink-900 relative bg-grid-pattern">
+<body class="text-slate-800 dark:text-white antialiased selection:bg-pink-300 selection:text-pink-900 relative bg-grid-pattern overflow-x-hidden w-full">
     
     <!-- Background Blobs -->
     <div class="blob bg-pink-300 w-96 h-96 rounded-full top-[-10%] left-[-10%]"></div>
@@ -219,7 +219,7 @@
                         </div>
 
                         <!-- Top Left Floating Card (Spotify style) -->
-                        <div class="absolute -top-8 -left-12 lg:-left-20 w-48 bg-white dark:bg-slate-800/95 dark:bg-slate-900/95 backdrop-blur-xl p-5 rounded-2xl border border-white dark:border-slate-700 shadow-xl shadow-pink-100/50 z-10 transform -rotate-12 hover:rotate-0 hover:z-30 transition-all duration-500 animate-float" style="animation-duration: 5s; animation-delay: 1s;">
+                        <div class="absolute -top-8 -left-2 sm:-left-12 lg:-left-20 w-44 sm:w-48 bg-white dark:bg-slate-800/95 dark:bg-slate-900/95 backdrop-blur-xl p-4 sm:p-5 rounded-2xl border border-white dark:border-slate-700 shadow-xl shadow-pink-100/50 z-10 transform -rotate-12 hover:rotate-0 hover:z-30 transition-all duration-500 animate-float" style="animation-duration: 5s; animation-delay: 1s;">
                             <div class="w-12 h-12 bg-gradient-to-br from-green-400 to-green-600 rounded-xl mb-4 flex items-center justify-center text-white shadow-lg shadow-green-500/40">
                                 <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm4.586 14.424c-.18.295-.563.387-.857.207-2.35-1.434-5.305-1.76-8.786-.963-.335.077-.67-.133-.746-.468-.077-.334.132-.67.467-.745 3.809-.87 7.076-.496 9.715 1.115.293.18.386.563.207.854zm1.214-2.71c-.226.368-.7.483-1.068.257-2.693-1.656-6.812-2.146-9.971-1.176-.412.126-.84-.105-.967-.517-.126-.412.106-.84.518-.967 3.614-1.11 8.163-.563 11.231 1.334.368.227.483.7.257 1.069zm.104-2.836c-3.23-1.918-8.56-2.096-11.642-1.162-.497.151-1.018-.13-1.169-.626-.151-.497.129-1.018.626-1.169 3.518-1.067 9.407-.866 13.115 1.336.446.265.594.838.33 1.284-.265.446-.838.594-1.26.337z"/></svg>
                             </div>
@@ -235,7 +235,7 @@
                         </div>
 
                         <!-- Bottom Right Floating Card (Disney style) -->
-                        <div class="absolute -bottom-8 -right-8 lg:-right-16 w-48 bg-gradient-to-br from-blue-600 to-blue-800 backdrop-blur-xl p-5 rounded-2xl border border-blue-400/50 shadow-xl shadow-blue-900/30 z-30 transform rotate-12 hover:rotate-0 hover:z-40 transition-all duration-500 animate-float" style="animation-duration: 7s; animation-delay: 2s;">
+                        <div class="absolute -bottom-8 -right-2 sm:-right-8 lg:-right-16 w-44 sm:w-48 bg-gradient-to-br from-blue-600 to-blue-800 backdrop-blur-xl p-4 sm:p-5 rounded-2xl border border-blue-400/50 shadow-xl shadow-blue-900/30 z-30 transform rotate-12 hover:rotate-0 hover:z-40 transition-all duration-500 animate-float" style="animation-duration: 7s; animation-delay: 2s;">
                             <div class="w-12 h-12 bg-white dark:bg-slate-800 rounded-xl mb-4 flex items-center justify-center text-blue-700 font-black text-2xl shadow-lg shadow-white/20">D+</div>
                             <h4 class="text-white font-black text-lg leading-tight mb-1">Disney+<br>Hotstar</h4>
                             <div class="mt-4 pt-3 border-t border-blue-500/50 flex justify-between items-center">
