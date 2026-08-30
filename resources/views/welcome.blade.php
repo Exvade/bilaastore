@@ -9,8 +9,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
     <style>
         body {
             font-family: 'Outfit', sans-serif;
@@ -38,6 +38,37 @@
 
         .swiper-pagination-bullet-active {
             background: #ec4899 !important;
+        }
+
+        @keyframes fadeDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fadeDown {
+            animation: fadeDown 0.3s ease-out forwards;
+        }
+
+        /* Perbaikan Safari iOS untuk blur */
+        .backdrop-blur-lg {
+            -webkit-backdrop-filter: blur(16px);
+        }
+
+        .app-card {
+            will-change: transform, opacity;
+        }
+
+        /* Tambahan agar saat pencarian fungsionalitas display tidak terganggu GSAP */
+        .app-card[style*="display: none"] {
+            opacity: 0 !important;
+            transform: scale(0.9) !important;
         }
 
         .blob {
@@ -82,8 +113,25 @@
                 <a href="#katalog" class="hover:text-pink-500 transition-colors">Katalog</a>
                 <a href="#faq" class="hover:text-pink-500 transition-colors">FAQ</a>
             </div>
-            <a href="#katalog" class="bg-gradient-to-r from-pink-500 to-rose-400 text-white px-6 py-2.5 rounded-full text-sm font-bold shadow-lg shadow-pink-300/50 hover:shadow-pink-400/50 hover:-translate-y-0.5 transition-all duration-300">
+            <a href="#katalog" class="hidden md:block bg-gradient-to-r from-pink-500 to-rose-400 text-white px-6 py-2.5 rounded-full text-sm font-bold shadow-lg shadow-pink-300/50 hover:shadow-pink-400/50 hover:-translate-y-0.5 transition-all duration-300">
                 Beli Sekarang
+            </a>
+            <button id="mobile-menu-button" class="md:hidden p-2 text-slate-600 hover:text-pink-500 transition focus:outline-none">
+                <svg id="menu-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-8 h-8">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                </svg>
+                <svg id="close-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-8 h-8 hidden">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden mt-4 pt-4 border-t border-pink-100 flex flex-col gap-4 text-center font-semibold text-slate-700 animate-fadeDown">
+            <a href="#cara-order" class="mobile-link py-2 hover:text-pink-500">Cara Order</a>
+            <a href="#keunggulan" class="mobile-link py-2 hover:text-pink-500">Keunggulan</a>
+            <a href="#katalog" class="mobile-link py-2 hover:text-pink-500">Katalog</a>
+            <a href="#faq" class="mobile-link py-2 hover:text-pink-500">FAQ</a>
+            <a href="#katalog" class="mobile-link mt-2 bg-gradient-to-r from-pink-500 to-rose-400 text-white py-3 rounded-xl font-bold shadow-lg shadow-pink-300/50">
+                Beli Sekarang ✨
             </a>
         </div>
     </nav>
@@ -426,34 +474,53 @@
 
     <!-- Scripts -->
     <script>
-        // --- 1. Search Functionality ---
+        // --- 1. Inisialisasi Elemen ---
         const searchInput = document.getElementById('searchInput');
         const appCards = document.querySelectorAll('.app-card');
         const noResults = document.getElementById('noResults');
+        const btn = document.getElementById('mobile-menu-button');
+        const menu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+        const closeIcon = document.getElementById('close-icon');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
 
-        searchInput.addEventListener('input', function() {
-            const searchTerm = this.value.toLowerCase();
-            let hasResults = false;
+        // --- 2. Mobile Menu Toggle ---
+        function toggleMenu() {
+            if (menu) menu.classList.toggle('hidden');
+            if (menuIcon) menuIcon.classList.toggle('hidden');
+            if (closeIcon) closeIcon.classList.toggle('hidden');
+        }
+        if (btn) btn.addEventListener('click', toggleMenu);
+        if (mobileLinks) {
+            mobileLinks.forEach(link => link.addEventListener('click', toggleMenu));
+        }
 
-            appCards.forEach(card => {
-                const appName = card.getAttribute('data-name');
-                if (appName.includes(searchTerm)) {
-                    card.style.display = 'block';
-                    hasResults = true;
+        // --- 3. Search Functionality ---
+        if (searchInput) {
+            searchInput.addEventListener('input', function() {
+                const searchTerm = this.value.toLowerCase();
+                let hasResults = false;
+
+                appCards.forEach(card => {
+                    const appName = card.getAttribute('data-name').toLowerCase();
+                    if (appName.includes(searchTerm)) {
+                        card.style.display = 'block';
+                        hasResults = true;
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+
+                if (hasResults) {
+                    noResults.classList.add('hidden');
+                    if(typeof ScrollTrigger !== 'undefined') ScrollTrigger.refresh(); 
                 } else {
-                    card.style.display = 'none';
+                    noResults.classList.remove('hidden');
                 }
             });
+        }
 
-            if (hasResults) {
-                noResults.classList.add('hidden');
-                ScrollTrigger.refresh(); 
-            } else {
-                noResults.classList.remove('hidden');
-            }
-        });
-
-        // --- 2. Swiper Initialization ---
+        // --- 4. Swiper Initialization ---
         var swiper = new Swiper(".testimonySwiper", {
             slidesPerView: 1,
             spaceBetween: 20,
@@ -464,7 +531,7 @@
             },
             pagination: {
                 el: ".swiper-pagination",
-                clickable: true,
+                clickable: true
             },
             breakpoints: {
                 640: { slidesPerView: 2, spaceBetween: 30 },
@@ -472,7 +539,7 @@
             },
         });
 
-        // --- 3. FAQ Accordion ---
+        // --- 5. FAQ Accordion ---
         const accordions = document.querySelectorAll('.accordion-item');
         accordions.forEach(acc => {
             const btn = acc.querySelector('.accordion-btn');
@@ -491,7 +558,7 @@
             });
         });
 
-        // --- 4. GSAP Animations ---
+        // --- 6. GSAP Animations ---
         gsap.registerPlugin(ScrollTrigger);
 
         const tl = gsap.timeline();
