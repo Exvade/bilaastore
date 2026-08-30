@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="id" class="scroll-smooth overflow-x-hidden">
+<html lang="id" class="scroll-smooth overflow-x-clip">
 
 <head>
     <meta charset="UTF-8">
@@ -23,7 +23,7 @@
         body {
             font-family: 'Outfit', sans-serif;
             background-color: #fdf2f8; 
-            overflow-x: hidden;
+            overflow-x: clip;
             transition: background-color 0.3s ease, color 0.3s ease;
         }
         
@@ -104,7 +104,7 @@
     </style>
 </head>
 
-<body class="text-slate-800 dark:text-white antialiased selection:bg-pink-300 selection:text-pink-900 relative bg-grid-pattern overflow-x-hidden w-full">
+<body class="text-slate-800 dark:text-white antialiased selection:bg-pink-300 selection:text-pink-900 relative bg-grid-pattern overflow-x-clip w-full">
     
     <!-- Background Blobs -->
     <div class="blob bg-pink-300 w-96 h-96 rounded-full top-[-10%] left-[-10%]"></div>
