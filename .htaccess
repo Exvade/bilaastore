@@ -6,6 +6,9 @@ Options +FollowSymLinks
 
     RewriteEngine On
 
+    # Aset etalase saat document root hosting berada di direktori proyek.
+    RewriteRule ^storefront/(.*)$ public/storefront/$1 [L]
+
     # Handle Authorization Header
     RewriteCond %{HTTP:Authorization} .
     RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]

@@ -17,7 +17,7 @@
                 <label class="block mb-3 font-bold text-slate-700 ml-1">Nama Aplikasi</label>
                 <input type="text" name="nama" value="{{ $app->nama }}"
                     class="w-full px-5 py-4 bg-pink-50/50 border border-pink-100 rounded-2xl focus:ring-2 focus:ring-pink-400 focus:bg-white outline-none transition-all duration-300"
-                    placeholder="Contoh: Netflix Premium">
+                    placeholder="Contoh: Netflix Premium" required>
             </div>
 
             <div>
@@ -34,7 +34,7 @@
         <div class="mb-8">
             <label class="block mb-3 font-bold text-slate-700 ml-1">Deskripsi / Ketentuan</label>
             <textarea name="deskripsi" rows="5"
-                class="w-full px-5 py-4 bg-pink-50/50 border border-pink-100 rounded-2xl focus:ring-2 focus:ring-pink-400 focus:bg-white outline-none transition-all duration-300">{{ $app->deskripsi }}</textarea>
+                class="w-full px-5 py-4 bg-pink-50/50 border border-pink-100 rounded-2xl focus:ring-2 focus:ring-pink-400 focus:bg-white outline-none transition-all duration-300" required>{{ $app->deskripsi }}</textarea>
         </div>
 
         <div class="mb-10 p-6 md:p-8 bg-pink-50/30 rounded-[2rem] border border-pink-100 border-dashed">
@@ -43,13 +43,17 @@
 
             <div id="plan-container" class="space-y-4">
                 @foreach ($app->plans as $plan)
-                    <div class="flex flex-col md:flex-row gap-4 animate-fadeIn">
+                    <div class="plan-row flex flex-col md:flex-row gap-4 animate-fadeIn">
                         <input type="text" name="durasi[]" value="{{ $plan->durasi }}" placeholder="Durasi"
                             class="flex-1 px-5 py-4 bg-white border border-pink-100 rounded-2xl focus:ring-2 focus:ring-pink-400 outline-none transition-all"
                             required>
                         <input type="number" name="harga[]" value="{{ $plan->harga }}" placeholder="Harga"
                             class="flex-1 px-5 py-4 bg-white border border-pink-100 rounded-2xl focus:ring-2 focus:ring-pink-400 outline-none transition-all"
                             required>
+                        <button type="button" onclick="removePlan(this)" aria-label="Hapus baris harga"
+                            class="px-5 py-4 bg-rose-50 text-rose-500 rounded-2xl font-bold hover:bg-rose-100 transition">
+                            Hapus
+                        </button>
                     </div>
                 @endforeach
             </div>
@@ -77,12 +81,22 @@
         function addPlan() {
             const container = document.getElementById('plan-container');
             const html = `
-        <div class="flex flex-col md:flex-row gap-4 animate-fadeIn">
+        <div class="plan-row flex flex-col md:flex-row gap-4 animate-fadeIn">
             <input type="text" name="durasi[]" placeholder="Durasi" class="flex-1 px-5 py-4 bg-white border border-pink-100 rounded-2xl focus:ring-2 focus:ring-pink-400 outline-none transition-all" required>
             <input type="number" name="harga[]" placeholder="Harga" class="flex-1 px-5 py-4 bg-white border border-pink-100 rounded-2xl focus:ring-2 focus:ring-pink-400 outline-none transition-all" required>
+            <button type="button" onclick="removePlan(this)" aria-label="Hapus baris harga" class="px-5 py-4 bg-rose-50 text-rose-500 rounded-2xl font-bold hover:bg-rose-100 transition">Hapus</button>
         </div>
         `;
             container.insertAdjacentHTML('beforeend', html);
+        }
+
+        function removePlan(button) {
+            const rows = document.querySelectorAll('#plan-container .plan-row');
+            if (rows.length === 1) {
+                rows[0].querySelector('input[name="durasi[]"]').focus();
+                return;
+            }
+            button.closest('.plan-row').remove();
         }
     </script>
 

@@ -26,13 +26,13 @@
                 <label class="block mb-3 font-bold text-slate-700 ml-1">Nama Aplikasi</label>
                 <input type="text" name="nama"
                     class="w-full px-5 py-4 bg-pink-50/50 border border-pink-100 rounded-2xl focus:ring-2 focus:ring-pink-400 focus:bg-white outline-none transition-all placeholder:text-slate-300"
-                    placeholder="Contoh: Netflix Premium">
+                    placeholder="Contoh: Netflix Premium" required>
             </div>
 
             <div>
                 <label class="block mb-3 font-bold text-slate-700 ml-1">Logo Aplikasi</label>
                 <input type="file" name="logo"
-                    class="w-full px-5 py-3 bg-pink-50/50 border border-pink-100 rounded-2xl focus:ring-2 focus:ring-pink-400 focus:bg-white outline-none transition-all file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-pink-100 file:text-pink-700 hover:file:bg-pink-200">
+                    class="w-full px-5 py-3 bg-pink-50/50 border border-pink-100 rounded-2xl focus:ring-2 focus:ring-pink-400 focus:bg-white outline-none transition-all file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-pink-100 file:text-pink-700 hover:file:bg-pink-200" required>
             </div>
         </div>
 
@@ -40,7 +40,7 @@
             <label class="block mb-3 font-bold text-slate-700 ml-1">Deskripsi / Ketentuan</label>
             <textarea name="deskripsi" rows="4"
                 class="w-full px-5 py-4 bg-pink-50/50 border border-pink-100 rounded-2xl focus:ring-2 focus:ring-pink-400 focus:bg-white outline-none transition-all placeholder:text-slate-300"
-                placeholder="Tuliskan keunggulan akun atau aturan garansi di sini..."></textarea>
+                placeholder="Tuliskan keunggulan akun atau aturan garansi di sini..." required></textarea>
         </div>
 
         <div class="mb-10 p-6 md:p-8 bg-pink-50/30 rounded-[2rem] border border-pink-100 border-dashed">
@@ -48,13 +48,17 @@
                 Durasi</label>
 
             <div id="plan-container" class="space-y-4">
-                <div class="flex flex-col md:flex-row gap-4">
+                <div class="plan-row flex flex-col md:flex-row gap-4">
                     <input type="text" name="durasi[]" placeholder="Durasi (ex: 1 Bulan)"
                         class="flex-1 px-5 py-4 bg-white border border-pink-100 rounded-2xl focus:ring-2 focus:ring-pink-400 outline-none transition-all"
                         required>
                     <input type="number" name="harga[]" placeholder="Harga (ex: 35000)"
                         class="flex-1 px-5 py-4 bg-white border border-pink-100 rounded-2xl focus:ring-2 focus:ring-pink-400 outline-none transition-all"
                         required>
+                    <button type="button" onclick="removePlan(this)" aria-label="Hapus baris harga"
+                        class="px-5 py-4 bg-rose-50 text-rose-500 rounded-2xl font-bold hover:bg-rose-100 transition">
+                        Hapus
+                    </button>
                 </div>
             </div>
 
@@ -81,12 +85,22 @@
         function addPlan() {
             const container = document.getElementById('plan-container');
             const html = `
-        <div class="flex flex-col md:flex-row gap-4 animate-fadeIn">
+        <div class="plan-row flex flex-col md:flex-row gap-4 animate-fadeIn">
             <input type="text" name="durasi[]" placeholder="Durasi" class="flex-1 px-5 py-4 bg-white border border-pink-100 rounded-2xl focus:ring-2 focus:ring-pink-400 outline-none transition-all" required>
             <input type="number" name="harga[]" placeholder="Harga" class="flex-1 px-5 py-4 bg-white border border-pink-100 rounded-2xl focus:ring-2 focus:ring-pink-400 outline-none transition-all" required>
+            <button type="button" onclick="removePlan(this)" aria-label="Hapus baris harga" class="px-5 py-4 bg-rose-50 text-rose-500 rounded-2xl font-bold hover:bg-rose-100 transition">Hapus</button>
         </div>
         `;
             container.insertAdjacentHTML('beforeend', html);
+        }
+
+        function removePlan(button) {
+            const rows = document.querySelectorAll('#plan-container .plan-row');
+            if (rows.length === 1) {
+                rows[0].querySelector('input[name="durasi[]"]').focus();
+                return;
+            }
+            button.closest('.plan-row').remove();
         }
     </script>
 
