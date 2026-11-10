@@ -26,10 +26,12 @@ class AdminAppController extends Controller
     // 1. Validasi - Hapus 'whatsapp' => 'required'
     $request->validate([
         'nama' => 'required',
-        'logo' => 'image|mimes:jpeg,png,jpg|max:2048',
+        'logo' => 'required|image|mimes:jpeg,png,jpg|max:2048',
         'deskripsi' => 'required',
-        'durasi' => 'required|array', // Pastikan durasi ada
-        'harga' => 'required|array',  // Pastikan harga ada
+        'durasi' => 'required|array|min:1',
+        'durasi.*' => 'required|string|max:255',
+        'harga' => 'required|array|min:1',
+        'harga.*' => 'required|integer|min:0',
     ]);
 
     // 2. Handle Upload Logo
@@ -71,6 +73,10 @@ public function update(Request $request, $id) {
         'nama' => 'required',
         'logo' => 'image|mimes:jpeg,png,jpg|max:2048',
         'deskripsi' => 'required',
+        'durasi' => 'required|array|min:1',
+        'durasi.*' => 'required|string|max:255',
+        'harga' => 'required|array|min:1',
+        'harga.*' => 'required|integer|min:0',
     ]);
 
     // Update Logo jika ada file baru
